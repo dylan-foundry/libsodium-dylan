@@ -1,0 +1,12 @@
+{
+  "name": "sodium",
+  "description": "",
+  "keywords": [
+    "crypto"
+  ],
+  "license": "MIT",
+  "default-target": "sodium",
+  "tests": [
+    "sodium-test-suite-app"
+  ]
+}
