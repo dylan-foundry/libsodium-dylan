@@ -9,4 +9,4 @@ Files: library
        signatures
        signatures-default
        signatures-ed25519
-C-libraries: -lsodium
+Jam-includes: libsodium.jam
