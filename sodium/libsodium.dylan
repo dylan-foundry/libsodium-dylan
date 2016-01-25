@@ -1,4 +1,4 @@
-module: sodium
+module: libsodium
 synopsis: bindings for the sodium library
 author: Bruce Mitchener, Jr.
 copyright: See LICENSE file in this distribution.

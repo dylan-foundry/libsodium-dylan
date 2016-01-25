@@ -2,34 +2,31 @@ module: sodium-test-suite
 synopsis: Test suite for the sodium library.
 
 define test sign-generate-keys ()
-  let public-key = make(<C-string>, size: $crypto-sign-PUBLICKEYBYTES);
-  let secret-key = make(<C-string>, size: $crypto-sign-SECRETKEYBYTES);
-  assert-equal(0, crypto-sign-keypair(public-key, secret-key));
+  assert-no-errors(crypto-sign-keypair());
 end test sign-generate-keys;
 
-define test sign-round-trip ()
-  let public-key = make(<C-string>, size: $crypto-sign-PUBLICKEYBYTES);
-  let secret-key = make(<C-string>, size: $crypto-sign-SECRETKEYBYTES);
-  assert-equal(0, crypto-sign-keypair(public-key, secret-key));
+define test sign-round-trip-byte-string-default ()
+  let (public-key, secret-key) = crypto-sign-keypair();
 
   let message = "Hello there!";
-  let signed-message = make(<C-string>, size: message.size + $crypto-sign-BYTES);
-  let signed-message-len = make(<C-long*>);
-  with-c-string (c-message = message)
-    assert-equal(0, crypto-sign(signed-message, signed-message-len,
-                                c-message, message.size,
-                                secret-key));
-  end with-c-string;
+  let signed-payload = crypto-sign(message, secret-key);
 
-  let unsigned-message = make(<C-string>, size: message.size);
-  let unsigned-message-len = make(<C-long*>);
-  assert-equal(0, crypto-sign-open(unsigned-message, unsigned-message-len,
-                                   signed-message, as(<integer>, C-long-at(signed-message-len)),
-                                   public-key));
-  assert-equal(message, as(<byte-string>, unsigned-message));
-end test sign-round-trip;
+  let unsigned-message = crypto-sign-open(signed-payload, public-key);
+  assert-equal(message, unsigned-message);
+end test sign-round-trip-byte-string-default;
+
+define test sign-round-trip-byte-string-ed25519 ()
+  let (public-key, secret-key) = crypto-sign-ed25519-keypair();
+
+  let message = "Hello there!";
+  let signed-payload = crypto-sign(message, secret-key);
+
+  let unsigned-message = crypto-sign-open(signed-payload, public-key);
+  assert-equal(message, unsigned-message);
+end test sign-round-trip-byte-string-ed25519;
 
 define suite sodium-test-suite ()
   test sign-generate-keys;
-  test sign-round-trip;
+  test sign-round-trip-byte-string-default;
+  test sign-round-trip-byte-string-ed25519;
 end suite;

@@ -1,6 +1,6 @@
 module: dylan-user
 
-define module sodium
+define module libsodium
   use common-dylan;
   use c-ffi;
   export
@@ -546,4 +546,4 @@ define module sodium
     sodium-runtime-has-sse41,
     sodium-runtime-has-ssse3,
     sodium-version-string;
-end module sodium;
+end module libsodium;
