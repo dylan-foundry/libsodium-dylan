@@ -5,24 +5,41 @@ define test sign-generate-keys ()
   assert-no-errors(crypto-sign-keypair());
 end test sign-generate-keys;
 
-define test sign-round-trip-byte-string-default ()
-  let (public-key, secret-key) = crypto-sign-keypair();
-
+define function sign-round-trip-byte-string-helper
+    (public-key, secret-key)
   let message = "Hello there!";
   let signed-payload = crypto-sign(message, secret-key);
 
   let unsigned-message = crypto-sign-open(signed-payload, public-key);
   assert-equal(message, unsigned-message);
+
+  let data = signed-payload-data(signed-payload);
+  let old = data[3];
+  data[3] := as(<character>, as(<integer>, data[3]) + 1);
+  assert-signals(<sodium-error>,
+                 crypto-sign-open(signed-payload, public-key),
+                 "mutated signed payload fails to open");
+  data[3] := old;
+
+  let data = public-signing-key-data(public-key);
+  let old = data[3];
+  data[3] := as(<character>, as(<integer>, data[3]) + 1);
+  assert-signals(<sodium-error>,
+                 crypto-sign-open(signed-payload, public-key),
+                 "mutated public key fails to open");
+  data[3] := old;
+end function;
+
+define test sign-round-trip-byte-string-default ()
+  let (public-key, secret-key) = crypto-sign-keypair();
+
+  sign-round-trip-byte-string-helper(public-key, secret-key);
 end test sign-round-trip-byte-string-default;
 
 define test sign-round-trip-byte-string-ed25519 ()
   let (public-key, secret-key) = crypto-sign-ed25519-keypair();
 
-  let message = "Hello there!";
-  let signed-payload = crypto-sign(message, secret-key);
-
-  let unsigned-message = crypto-sign-open(signed-payload, public-key);
-  assert-equal(message, unsigned-message);
+  sign-round-trip-byte-string-helper(public-key, secret-key);
 end test sign-round-trip-byte-string-ed25519;
 
 define suite sodium-test-suite ()

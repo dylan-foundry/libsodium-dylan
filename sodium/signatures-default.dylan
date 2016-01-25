@@ -15,7 +15,8 @@ define function crypto-sign-keypair
      secret-key :: <default-secret-signing-key>)
   let public-key-data = make(<C-string>, size: $crypto-sign-PUBLICKEYBYTES);
   let secret-key-data = make(<C-string>, size: $crypto-sign-SECRETKEYBYTES);
-  %crypto-sign-keypair(public-key-data, secret-key-data); // TODO: Error handling
+  let res = %crypto-sign-keypair(public-key-data, secret-key-data);
+  check-error(res, "crypto-sign-keypair");
   let public-key = make(<default-public-signing-key>, data: public-key-data);
   let secret-key = make(<default-secret-signing-key>, data: secret-key-data);
   values(public-key, secret-key)
@@ -27,10 +28,10 @@ define inline function crypto-sign-default-helper
  => (signed-payload :: <signed-payload>)
   let signed-payload = make(<C-string>, size: payload.size + $crypto-sign-BYTES);
   let signed-payload-len = make(<C-long*>);
-  // TODO: Error handling
-  %crypto-sign(signed-payload, signed-payload-len,
-               payload, payload-size,
-               secret-signing-key-data(secret-key));
+  let res = %crypto-sign(signed-payload, signed-payload-len,
+                         payload, payload-size,
+                         secret-signing-key-data(secret-key));
+  check-error(res, "crypto-sign");
   make(<signed-payload>, data: signed-payload,
        size: as(<integer>, C-long-at(signed-payload-len)))
 end function;
@@ -58,10 +59,10 @@ define method crypto-sign-open
   let unsigned-message
     = make(<C-string>, size: signed-payload-size(signed-payload) - $crypto-sign-BYTES);
   let unsigned-message-len = make(<C-long*>);
-  // TODO: Error handling
-  %crypto-sign-open(unsigned-message, unsigned-message-len,
-                    signed-payload-data(signed-payload),
-                    signed-payload-size(signed-payload),
-                    public-signing-key-data(public-key));
+  let res = %crypto-sign-open(unsigned-message, unsigned-message-len,
+                              signed-payload-data(signed-payload),
+                              signed-payload-size(signed-payload),
+                              public-signing-key-data(public-key));
+  check-error(res, "crypto-sign-open");
   as(<byte-string>, unsigned-message)
 end method;

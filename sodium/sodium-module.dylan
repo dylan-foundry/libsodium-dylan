@@ -13,6 +13,9 @@ define module sodium
       crypto-sign-ed25519-open => %crypto-sign-ed25519-open,
     };
 
+  export <sodium-error>,
+         sodium-error-operation;
+
   export crypto-sign-keypair,
          crypto-sign-ed25519-keypair,
          public-signing-key-data,
