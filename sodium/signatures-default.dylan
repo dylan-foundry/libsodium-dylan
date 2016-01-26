@@ -20,7 +20,7 @@ define function crypto-sign-keypair
   let public-key = make(<default-public-signing-key>, data: public-key-data);
   let secret-key = make(<default-secret-signing-key>, data: secret-key-data);
   values(public-key, secret-key)
-end;
+end function;
 
 define inline function crypto-sign-default-helper
     (payload :: <C-string>, payload-size :: <integer>,

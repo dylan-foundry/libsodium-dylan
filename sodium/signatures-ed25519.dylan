@@ -20,7 +20,7 @@ define function crypto-sign-ed25519-keypair
   let public-key = make(<ed25519-public-signing-key>, data: public-key-data);
   let secret-key = make(<ed25519-secret-signing-key>, data: secret-key-data);
   values(public-key, secret-key)
-end;
+end function;
 
 define inline function crypto-sign-ed25519-helper
     (payload :: <C-string>, payload-size :: <integer>,

@@ -3,7 +3,7 @@ synopsis: Test suite for the sodium library.
 
 define test sign-generate-keys ()
   assert-no-errors(crypto-sign-keypair());
-end test sign-generate-keys;
+end test;
 
 define function sign-round-trip-byte-string-helper
     (public-key, secret-key)
@@ -34,13 +34,13 @@ define test sign-round-trip-byte-string-default ()
   let (public-key, secret-key) = crypto-sign-keypair();
 
   sign-round-trip-byte-string-helper(public-key, secret-key);
-end test sign-round-trip-byte-string-default;
+end test;
 
 define test sign-round-trip-byte-string-ed25519 ()
   let (public-key, secret-key) = crypto-sign-ed25519-keypair();
 
   sign-round-trip-byte-string-helper(public-key, secret-key);
-end test sign-round-trip-byte-string-ed25519;
+end test;
 
 define function sign-round-trip-detached-helper
     (public-key, secret-key)
