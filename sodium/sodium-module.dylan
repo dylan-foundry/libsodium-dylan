@@ -11,6 +11,10 @@ define module sodium
       crypto-sign-ed25519 => %crypto-sign-ed25519,
       crypto-sign-ed25519-keypair => %crypto-sign-ed25519-keypair,
       crypto-sign-ed25519-open => %crypto-sign-ed25519-open,
+      crypto-sign-detached => %crypto-sign-detached,
+      crypto-sign-verify-detached => %crypto-sign-verify-detached,
+      crypto-sign-ed25519-detached => %crypto-sign-ed25519-detached,
+      crypto-sign-ed25519-verify-detached => %crypto-sign-ed25519-verify-detached,
     };
 
   export <sodium-error>,
@@ -26,4 +30,10 @@ define module sodium
          <signed-payload>,
          signed-payload-data,
          signed-payload-size;
+
+  export crypto-sign-detached,
+         crypto-sign-verify-detached,
+         <detached-signature>,
+         detached-signature-data,
+         detached-signature-size;
 end module sodium;

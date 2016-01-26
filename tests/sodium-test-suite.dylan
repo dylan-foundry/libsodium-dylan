@@ -42,8 +42,38 @@ define test sign-round-trip-byte-string-ed25519 ()
   sign-round-trip-byte-string-helper(public-key, secret-key);
 end test sign-round-trip-byte-string-ed25519;
 
+define function sign-round-trip-detached-helper
+    (public-key, secret-key)
+ => ()
+  let message = "Detachment and objectivity.";
+  let signature = crypto-sign-detached(message, secret-key);
+  assert-no-errors(crypto-sign-verify-detached(signature, message, public-key));
+
+  let data = detached-signature-data(signature);
+  let old = data[3];
+  data[3] := as(<character>, as(<integer>, data[3]) + 1);
+  assert-signals(<sodium-error>,
+                 crypto-sign-verify-detached(signature, message, public-key),
+                 "mutated signature fails to open");
+  data[3] := old;
+end function;
+
+define test sign-round-trip-detached-default ()
+  let (public-key, secret-key) = crypto-sign-keypair();
+
+  sign-round-trip-detached-helper(public-key, secret-key);
+end test;
+
+define test sign-round-trip-detached-ed25519 ()
+  let (public-key, secret-key) = crypto-sign-ed25519-keypair();
+
+  sign-round-trip-detached-helper(public-key, secret-key);
+end test;
+
 define suite sodium-test-suite ()
   test sign-generate-keys;
   test sign-round-trip-byte-string-default;
   test sign-round-trip-byte-string-ed25519;
+  test sign-round-trip-detached-default;
+  test sign-round-trip-detached-ed25519;
 end suite;

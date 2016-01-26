@@ -66,3 +66,33 @@ define method crypto-sign-open
   check-error(res, "crypto-sign-open");
   as(<byte-string>, unsigned-message)
 end method;
+
+define method crypto-sign-detached
+    (payload :: type-union(<byte-vector>, <byte-string>),
+     secret-key :: <default-secret-signing-key>)
+ => (signature :: <detached-signature>)
+  let signature-data = make(<C-string>, size: $crypto-sign-BYTES);
+  let signature-data-size = make(<C-long*>);
+  with-c-string (payload-data = payload)
+    let res = %crypto-sign-detached(signature-data, signature-data-size,
+                                    payload-data, payload.size,
+                                    secret-signing-key-data(secret-key));
+    check-error(res, "crypto-sign-detached");
+  end with-c-string;
+  make(<detached-signature>, data: signature-data,
+       size: as(<integer>, C-long-at(signature-data-size)))
+end method;
+
+define method crypto-sign-verify-detached
+    (signature :: <detached-signature>,
+     payload :: type-union(<byte-vector>, <byte-string>),
+     public-key :: <default-public-signing-key>)
+ => ()
+  with-c-string (payload-data = payload)
+    let res
+      = %crypto-sign-verify-detached(detached-signature-data(signature),
+                                     payload-data, payload.size,
+                                     public-signing-key-data(public-key));
+    check-error(res, "crypto-sign-verify-detached");
+  end with-c-string;
+end method;

@@ -29,3 +29,21 @@ define sealed generic crypto-sign-open
     (signed-payload :: <signed-payload>,
      public-key :: <public-signing-key>)
  => (payload :: <byte-string>);
+
+define class <detached-signature> (<object>)
+  constant slot detached-signature-data :: <C-string>,
+    required-init-keyword: data:;
+  constant slot detached-signature-size :: <integer>,
+    required-init-keyword: size:;
+end class;
+
+define sealed generic crypto-sign-detached
+    (payload :: type-union(<byte-vector>, <byte-string>),
+     secret-key :: <secret-signing-key>)
+ => (signature :: <detached-signature>);
+
+define sealed generic crypto-sign-verify-detached
+    (signature :: <detached-signature>,
+     payload :: type-union(<byte-vector>, <byte-string>),
+     public-key :: <public-signing-key>)
+ => ();
