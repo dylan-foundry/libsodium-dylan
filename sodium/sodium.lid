@@ -5,6 +5,7 @@ Files: library
        libsodium-module
        sodium-module
        libsodium
+       sodium-init
        conditions
        signatures
        signatures-default
