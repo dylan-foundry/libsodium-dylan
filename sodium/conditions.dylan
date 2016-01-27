@@ -1,5 +1,5 @@
 module: sodium
-synopsis: friendly interface to signing
+synopsis: Error handling helpers.
 author: Bruce Mitchener, Jr.
 copyright: See LICENSE file in this distribution.
 
