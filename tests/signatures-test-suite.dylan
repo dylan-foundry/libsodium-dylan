@@ -70,10 +70,18 @@ define test sign-round-trip-detached-ed25519 ()
   sign-round-trip-detached-helper(public-key, secret-key);
 end test;
 
+define test sign-ed25519-sk-to-pk ()
+  let (public-key, secret-key) = crypto-sign-ed25519-keypair();
+  let extracted-public-key = crypto-sign-ed25519-sk-to-pk(secret-key);
+  assert-equal(public-signing-key-data(public-key),
+               public-signing-key-data(extracted-public-key));
+end test;
+
 define suite signatures-test-suite ()
   test sign-generate-keys;
   test sign-round-trip-byte-string-default;
   test sign-round-trip-byte-string-ed25519;
   test sign-round-trip-detached-default;
   test sign-round-trip-detached-ed25519;
+  test sign-ed25519-sk-to-pk;
 end suite;

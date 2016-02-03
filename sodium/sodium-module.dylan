@@ -14,6 +14,7 @@ define module sodium
       crypto-sign-detached => %crypto-sign-detached,
       crypto-sign-verify-detached => %crypto-sign-verify-detached,
       crypto-sign-ed25519-detached => %crypto-sign-ed25519-detached,
+      crypto-sign-ed25519-sk-to-pk => %crypto-sign-ed25519-sk-to-pk,
       crypto-sign-ed25519-verify-detached => %crypto-sign-ed25519-verify-detached,
     };
 
@@ -22,6 +23,7 @@ define module sodium
 
   export crypto-sign-keypair,
          crypto-sign-ed25519-keypair,
+         crypto-sign-ed25519-sk-to-pk,
          public-signing-key-data,
          secret-signing-key-data;
 

@@ -97,3 +97,12 @@ define method crypto-sign-verify-detached
     check-error(res, "crypto-sign-ed25519-verify-detached");
   end with-c-string;
 end method;
+
+define method crypto-sign-ed25519-sk-to-pk
+    (secret-key :: <ed25519-secret-signing-key>)
+ => (public-key :: <ed25519-public-signing-key>)
+  let public-key-data = make(<C-string>, size: $crypto-sign-ed25519-PUBLICKEYBYTES);
+  let res = %crypto-sign-ed25519-sk-to-pk(public-key-data, secret-signing-key-data(secret-key));
+  check-error(res, "crypto-sign-ed25519-sk-to-pk");
+  make(<ed25519-public-signing-key>, data: public-key-data);
+end method;
