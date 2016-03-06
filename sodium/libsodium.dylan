@@ -3,6 +3,10 @@ synopsis: bindings for the sodium library
 author: Bruce Mitchener, Jr.
 copyright: See LICENSE file in this distribution.
 
+define simple-C-mapped-subtype <C-buffer-offset> (<C-void*>)
+  export-map <machine-word>, export-function: identity;
+end;
+
 define inline C-function sodium-init
   result res :: <C-signed-int>;
   c-name: "sodium_init";
@@ -221,20 +225,20 @@ define inline C-function crypto-auth-primitive
   c-name: "crypto_auth_primitive";
 end;
 
-define inline C-function crypto-auth
-  input parameter out_ :: <unsigned-char*>;
-  input parameter in_ :: <unsigned-char*>;
+define inline C-function %crypto-auth
+  input parameter out_ :: <C-buffer-offset>;
+  input parameter in_ :: <C-buffer-offset>;
   input parameter inlen_ :: <C-unsigned-long>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_auth";
 end;
 
-define inline C-function crypto-auth-verify
-  input parameter h_ :: <unsigned-char*>;
-  input parameter in_ :: <unsigned-char*>;
+define inline C-function %crypto-auth-verify
+  input parameter h_ :: <C-buffer-offset>;
+  input parameter in_ :: <C-buffer-offset>;
   input parameter inlen_ :: <C-unsigned-long>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_auth_verify";
 end;

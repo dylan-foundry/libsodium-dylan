@@ -12,6 +12,7 @@ end library;
 
 define module sodium-test-suite
   use common-dylan;
+  use byte-vector;
   use c-ffi;
   use sodium;
   use testworks;

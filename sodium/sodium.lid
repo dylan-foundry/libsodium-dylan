@@ -7,6 +7,7 @@ Files: library
        libsodium
        sodium-init
        conditions
+       auth
        signatures
        signatures-default
        signatures-ed25519

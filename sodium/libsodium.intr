@@ -3,6 +3,10 @@ synopsis: bindings for the sodium library
 author: Bruce Mitchener, Jr.
 copyright: See LICENSE file in this distribution.
 
+define simple-C-mapped-subtype <C-buffer-offset> (<C-void*>)
+  export-map <machine-word>, export-function: identity;
+end;
+
 define interface
   #include {
       "sodium.h",
@@ -68,4 +72,14 @@ define interface
       "randombytes_salsa20_implementation",
       "randombytes_sysrandom_implementation"
     };
+
+    function "crypto_auth" => %crypto-auth,
+      map-argument: { 1 => <C-buffer-offset> },
+      map-argument: { 2 => <C-buffer-offset> },
+      map-argument: { 4 => <C-buffer-offset> };
+
+    function "crypto_auth_verify" => %crypto-auth-verify,
+      map-argument: { 1 => <C-buffer-offset> },
+      map-argument: { 2 => <C-buffer-offset> },
+      map-argument: { 4 => <C-buffer-offset> };
 end interface;

@@ -16,10 +16,24 @@ define module sodium
       crypto-sign-ed25519-detached => %crypto-sign-ed25519-detached,
       crypto-sign-ed25519-sk-to-pk => %crypto-sign-ed25519-sk-to-pk,
       crypto-sign-ed25519-verify-detached => %crypto-sign-ed25519-verify-detached,
+    },
+    export: {
+      $crypto-auth-BYTES,
+      $crypto-auth-KEYBYTES,
+      $crypto-auth-PRIMITIVE,
+      $crypto-auth-hmacsha256-BYTES,
+      $crypto-auth-hmacsha256-KEYBYTES,
+      $crypto-auth-hmacsha512-BYTES,
+      $crypto-auth-hmacsha512-KEYBYTES,
+      $crypto-auth-hmacsha512256-BYTES,
+      $crypto-auth-hmacsha512256-KEYBYTES
     };
 
   export <sodium-error>,
          sodium-error-operation;
+
+  export crypto-auth,
+         crypto-auth-verify;
 
   export crypto-sign-keypair,
          crypto-sign-ed25519-keypair,
