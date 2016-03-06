@@ -2632,9 +2632,9 @@ define inline C-function sodium-library-version-minor
   c-name: "sodium_library_version_minor";
 end;
 
-define constant $SODIUM-VERSION-STRING = "1.0.7";
+define constant $SODIUM-VERSION-STRING = "1.0.8";
 
 define constant $SODIUM-LIBRARY-VERSION-MAJOR = 9;
 
-define constant $SODIUM-LIBRARY-VERSION-MINOR = 0;
+define constant $SODIUM-LIBRARY-VERSION-MINOR = 1;
 
