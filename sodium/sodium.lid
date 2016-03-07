@@ -8,6 +8,9 @@ Files: library
        sodium-init
        conditions
        auth
+       auth-hmacsha256
+       auth-hmacsha512
+       auth-hmacsha512256
        signatures
        signatures-default
        signatures-ed25519

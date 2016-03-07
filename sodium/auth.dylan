@@ -1,5 +1,5 @@
 module: sodium
-synopsis: friendly interface to signing
+synopsis: friendly interface to hashing
 author: Bruce Mitchener, Jr.
 copyright: See LICENSE file in this distribution.
 

@@ -33,7 +33,13 @@ define module sodium
          sodium-error-operation;
 
   export crypto-auth,
-         crypto-auth-verify;
+         crypto-auth-verify,
+         crypto-auth-hmacsha256,
+         crypto-auth-hmacsha256-verify,
+         crypto-auth-hmacsha512,
+         crypto-auth-hmacsha512-verify,
+         crypto-auth-hmacsha512256,
+         crypto-auth-hmacsha512256-verify;
 
   export crypto-sign-keypair,
          crypto-sign-ed25519-keypair,

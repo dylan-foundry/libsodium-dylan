@@ -259,20 +259,20 @@ define inline C-function crypto-auth-hmacsha256-keybytes
   c-name: "crypto_auth_hmacsha256_keybytes";
 end;
 
-define inline C-function crypto-auth-hmacsha256
-  input parameter out_ :: <unsigned-char*>;
-  input parameter in_ :: <unsigned-char*>;
+define inline C-function %crypto-auth-hmacsha256
+  input parameter out_ :: <C-buffer-offset>;
+  input parameter in_ :: <C-buffer-offset>;
   input parameter inlen_ :: <C-unsigned-long>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_auth_hmacsha256";
 end;
 
-define inline C-function crypto-auth-hmacsha256-verify
-  input parameter h_ :: <unsigned-char*>;
-  input parameter in_ :: <unsigned-char*>;
+define inline C-function %crypto-auth-hmacsha256-verify
+  input parameter h_ :: <C-buffer-offset>;
+  input parameter in_ :: <C-buffer-offset>;
   input parameter inlen_ :: <C-unsigned-long>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_auth_hmacsha256_verify";
 end;
@@ -331,20 +331,20 @@ define inline C-function crypto-auth-hmacsha512-keybytes
   c-name: "crypto_auth_hmacsha512_keybytes";
 end;
 
-define inline C-function crypto-auth-hmacsha512
-  input parameter out_ :: <unsigned-char*>;
-  input parameter in_ :: <unsigned-char*>;
+define inline C-function %crypto-auth-hmacsha512
+  input parameter out_ :: <C-buffer-offset>;
+  input parameter in_ :: <C-buffer-offset>;
   input parameter inlen_ :: <C-unsigned-long>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_auth_hmacsha512";
 end;
 
-define inline C-function crypto-auth-hmacsha512-verify
-  input parameter h_ :: <unsigned-char*>;
-  input parameter in_ :: <unsigned-char*>;
+define inline C-function %crypto-auth-hmacsha512-verify
+  input parameter h_ :: <C-buffer-offset>;
+  input parameter in_ :: <C-buffer-offset>;
   input parameter inlen_ :: <C-unsigned-long>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_auth_hmacsha512_verify";
 end;
@@ -403,20 +403,20 @@ define inline C-function crypto-auth-hmacsha512256-keybytes
   c-name: "crypto_auth_hmacsha512256_keybytes";
 end;
 
-define inline C-function crypto-auth-hmacsha512256
-  input parameter out_ :: <unsigned-char*>;
-  input parameter in_ :: <unsigned-char*>;
+define inline C-function %crypto-auth-hmacsha512256
+  input parameter out_ :: <C-buffer-offset>;
+  input parameter in_ :: <C-buffer-offset>;
   input parameter inlen_ :: <C-unsigned-long>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_auth_hmacsha512256";
 end;
 
-define inline C-function crypto-auth-hmacsha512256-verify
-  input parameter h_ :: <unsigned-char*>;
-  input parameter in_ :: <unsigned-char*>;
+define inline C-function %crypto-auth-hmacsha512256-verify
+  input parameter h_ :: <C-buffer-offset>;
+  input parameter in_ :: <C-buffer-offset>;
   input parameter inlen_ :: <C-unsigned-long>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_auth_hmacsha512256_verify";
 end;

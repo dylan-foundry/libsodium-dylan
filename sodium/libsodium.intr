@@ -82,4 +82,34 @@ define interface
       map-argument: { 1 => <C-buffer-offset> },
       map-argument: { 2 => <C-buffer-offset> },
       map-argument: { 4 => <C-buffer-offset> };
+
+    function "crypto_auth_hmacsha256" => %crypto-auth-hmacsha256,
+      map-argument: { 1 => <C-buffer-offset> },
+      map-argument: { 2 => <C-buffer-offset> },
+      map-argument: { 4 => <C-buffer-offset> };
+
+    function "crypto_auth_hmacsha256_verify" => %crypto-auth-hmacsha256-verify,
+      map-argument: { 1 => <C-buffer-offset> },
+      map-argument: { 2 => <C-buffer-offset> },
+      map-argument: { 4 => <C-buffer-offset> };
+
+    function "crypto_auth_hmacsha512" => %crypto-auth-hmacsha512,
+      map-argument: { 1 => <C-buffer-offset> },
+      map-argument: { 2 => <C-buffer-offset> },
+      map-argument: { 4 => <C-buffer-offset> };
+
+    function "crypto_auth_hmacsha512_verify" => %crypto-auth-hmacsha512-verify,
+      map-argument: { 1 => <C-buffer-offset> },
+      map-argument: { 2 => <C-buffer-offset> },
+      map-argument: { 4 => <C-buffer-offset> };
+
+    function "crypto_auth_hmacsha512256" => %crypto-auth-hmacsha512256,
+      map-argument: { 1 => <C-buffer-offset> },
+      map-argument: { 2 => <C-buffer-offset> },
+      map-argument: { 4 => <C-buffer-offset> };
+
+    function "crypto_auth_hmacsha512256_verify" => %crypto-auth-hmacsha512256-verify,
+      map-argument: { 1 => <C-buffer-offset> },
+      map-argument: { 2 => <C-buffer-offset> },
+      map-argument: { 4 => <C-buffer-offset> };
 end interface;
