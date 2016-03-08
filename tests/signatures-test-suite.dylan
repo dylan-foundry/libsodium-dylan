@@ -5,13 +5,12 @@ define test sign-generate-keys ()
   assert-no-errors(crypto-sign-keypair());
 end test;
 
-define function sign-round-trip-byte-string-helper
-    (public-key, secret-key)
-  let message = "Hello there!";
+define function sign-round-trip-helper
+    (public-key, secret-key, message)
   let signed-payload = crypto-sign(message, secret-key);
 
   let unsigned-message = crypto-sign-open(signed-payload, public-key);
-  assert-equal(message, as(<byte-string>, unsigned-message));
+  assert-equal(as(<byte-vector>, message), unsigned-message);
 
   let data = signed-payload-data(signed-payload);
   let old = data[3];
@@ -32,14 +31,30 @@ end function;
 
 define test sign-round-trip-byte-string-default ()
   let (public-key, secret-key) = crypto-sign-keypair();
+  let message = "Hello there!";
 
-  sign-round-trip-byte-string-helper(public-key, secret-key);
+  sign-round-trip-helper(public-key, secret-key, message);
 end test;
 
 define test sign-round-trip-byte-string-ed25519 ()
   let (public-key, secret-key) = crypto-sign-ed25519-keypair();
+  let message = "Hello there!";
 
-  sign-round-trip-byte-string-helper(public-key, secret-key);
+  sign-round-trip-helper(public-key, secret-key, message);
+end test;
+
+define test sign-round-trip-byte-vector-default ()
+  let (public-key, secret-key) = crypto-sign-keypair();
+  let message = as(<byte-vector>, "Hello there!");
+
+  sign-round-trip-helper(public-key, secret-key, message);
+end test;
+
+define test sign-round-trip-byte-vector-ed25519 ()
+  let (public-key, secret-key) = crypto-sign-ed25519-keypair();
+  let message = as(<byte-vector>, "Hello there!");
+
+  sign-round-trip-helper(public-key, secret-key, message);
 end test;
 
 define function sign-round-trip-detached-helper
@@ -81,6 +96,8 @@ define suite signatures-test-suite ()
   test sign-generate-keys;
   test sign-round-trip-byte-string-default;
   test sign-round-trip-byte-string-ed25519;
+  test sign-round-trip-byte-vector-default;
+  test sign-round-trip-byte-vector-ed25519;
   test sign-round-trip-detached-default;
   test sign-round-trip-detached-ed25519;
   test sign-ed25519-sk-to-pk;
