@@ -59,6 +59,7 @@ define interface
     },
     import: all,
     inline-functions: inline,
+    map: { "unsigned char*" => <C-buffer-offset> },
     exclude: {
       "_crypto_generichash_blake2b_pick_best_implementation",
       "_crypto_onetimeauth_poly1305_pick_best_implementation",
@@ -73,95 +74,23 @@ define interface
       "randombytes_sysrandom_implementation"
     };
 
-    function "crypto_auth" => %crypto-auth,
-      map-argument: { 1 => <C-buffer-offset> },
-      map-argument: { 2 => <C-buffer-offset> },
-      map-argument: { 4 => <C-buffer-offset> };
-
-    function "crypto_auth_verify" => %crypto-auth-verify,
-      map-argument: { 1 => <C-buffer-offset> },
-      map-argument: { 2 => <C-buffer-offset> },
-      map-argument: { 4 => <C-buffer-offset> };
-
-    function "crypto_auth_hmacsha256" => %crypto-auth-hmacsha256,
-      map-argument: { 1 => <C-buffer-offset> },
-      map-argument: { 2 => <C-buffer-offset> },
-      map-argument: { 4 => <C-buffer-offset> };
-
-    function "crypto_auth_hmacsha256_verify" => %crypto-auth-hmacsha256-verify,
-      map-argument: { 1 => <C-buffer-offset> },
-      map-argument: { 2 => <C-buffer-offset> },
-      map-argument: { 4 => <C-buffer-offset> };
-
-    function "crypto_auth_hmacsha512" => %crypto-auth-hmacsha512,
-      map-argument: { 1 => <C-buffer-offset> },
-      map-argument: { 2 => <C-buffer-offset> },
-      map-argument: { 4 => <C-buffer-offset> };
-
-    function "crypto_auth_hmacsha512_verify" => %crypto-auth-hmacsha512-verify,
-      map-argument: { 1 => <C-buffer-offset> },
-      map-argument: { 2 => <C-buffer-offset> },
-      map-argument: { 4 => <C-buffer-offset> };
-
-    function "crypto_auth_hmacsha512256" => %crypto-auth-hmacsha512256,
-      map-argument: { 1 => <C-buffer-offset> },
-      map-argument: { 2 => <C-buffer-offset> },
-      map-argument: { 4 => <C-buffer-offset> };
-
-    function "crypto_auth_hmacsha512256_verify" => %crypto-auth-hmacsha512256-verify,
-      map-argument: { 1 => <C-buffer-offset> },
-      map-argument: { 2 => <C-buffer-offset> },
-      map-argument: { 4 => <C-buffer-offset> };
-
-    function "crypto_sign_keypair" => %crypto-sign-keypair,
-      map-argument: { 1 => <C-buffer-offset> },
-      map-argument: { 2 => <C-buffer-offset> };
-
-    function "crypto_sign_ed25519_keypair" => %crypto-sign-ed25519-keypair,
-      map-argument: { 1 => <C-buffer-offset> },
-      map-argument: { 2 => <C-buffer-offset> };
-
-    function "crypto_sign_ed25519_sk_to_pk" => %crypto-sign-ed25519-sk-to-pk,
-      map-argument: { 1 => <C-buffer-offset> },
-      map-argument: { 2 => <C-buffer-offset> };
-
-    function "crypto_sign" => %crypto-sign,
-      map-argument: { 1 => <C-buffer-offset> },
-      map-argument: { 3 => <C-buffer-offset> },
-      map-argument: { 5 => <C-buffer-offset> };
-
-    function "crypto_sign_open" => %crypto-sign-open,
-      map-argument: { 1 => <C-buffer-offset> },
-      map-argument: { 3 => <C-buffer-offset> },
-      map-argument: { 5 => <C-buffer-offset> };
-
-    function "crypto_sign_detached" => %crypto-sign-detached,
-      map-argument: { 1 => <C-buffer-offset> },
-      map-argument: { 3 => <C-buffer-offset> },
-      map-argument: { 5 => <C-buffer-offset> };
-
-    function "crypto_sign_verify_detached" => %crypto-sign-verify-detached,
-      map-argument: { 1 => <C-buffer-offset> },
-      map-argument: { 2 => <C-buffer-offset> },
-      map-argument: { 4 => <C-buffer-offset> };
-
-    function "crypto_sign_ed25519" => %crypto-sign-ed25519,
-      map-argument: { 1 => <C-buffer-offset> },
-      map-argument: { 3 => <C-buffer-offset> },
-      map-argument: { 5 => <C-buffer-offset> };
-
-    function "crypto_sign_ed25519_open" => %crypto-sign-ed25519-open,
-      map-argument: { 1 => <C-buffer-offset> },
-      map-argument: { 3 => <C-buffer-offset> },
-      map-argument: { 5 => <C-buffer-offset> };
-
-    function "crypto_sign_ed25519_detached" => %crypto-sign-ed25519-detached,
-      map-argument: { 1 => <C-buffer-offset> },
-      map-argument: { 3 => <C-buffer-offset> },
-      map-argument: { 5 => <C-buffer-offset> };
-
-    function "crypto_sign_ed25519_verify_detached" => %crypto-sign-ed25519-verify-detached,
-      map-argument: { 1 => <C-buffer-offset> },
-      map-argument: { 2 => <C-buffer-offset> },
-      map-argument: { 4 => <C-buffer-offset> };
+    function "crypto_auth" => %crypto-auth;
+    function "crypto_auth_verify" => %crypto-auth-verify;
+    function "crypto_auth_hmacsha256" => %crypto-auth-hmacsha256;
+    function "crypto_auth_hmacsha256_verify" => %crypto-auth-hmacsha256-verify;
+    function "crypto_auth_hmacsha512" => %crypto-auth-hmacsha512;
+    function "crypto_auth_hmacsha512_verify" => %crypto-auth-hmacsha512-verify;
+    function "crypto_auth_hmacsha512256" => %crypto-auth-hmacsha512256;
+    function "crypto_auth_hmacsha512256_verify" => %crypto-auth-hmacsha512256-verify;
+    function "crypto_sign_keypair" => %crypto-sign-keypair;
+    function "crypto_sign_ed25519_keypair" => %crypto-sign-ed25519-keypair;
+    function "crypto_sign_ed25519_sk_to_pk" => %crypto-sign-ed25519-sk-to-pk;
+    function "crypto_sign" => %crypto-sign;
+    function "crypto_sign_open" => %crypto-sign-open;
+    function "crypto_sign_detached" => %crypto-sign-detached;
+    function "crypto_sign_verify_detached" => %crypto-sign-verify-detached;
+    function "crypto_sign_ed25519" => %crypto-sign-ed25519;
+    function "crypto_sign_ed25519_open" => %crypto-sign-ed25519-open;
+    function "crypto_sign_ed25519_detached" => %crypto-sign-ed25519-detached;
+    function "crypto_sign_ed25519_verify_detached" => %crypto-sign-ed25519-verify-detached;
 end interface;

@@ -48,29 +48,29 @@ end;
 
 define C-pointer-type <unsigned-long-long*> => <C-unsigned-long>;
 define inline C-function crypto-aead-aes256gcm-encrypt
-  input parameter c_ :: <unsigned-char*>;
+  input parameter c_ :: <C-buffer-offset>;
   input parameter clen-p_ :: <unsigned-long-long*>;
-  input parameter m_ :: <unsigned-char*>;
+  input parameter m_ :: <C-buffer-offset>;
   input parameter mlen_ :: <C-unsigned-long>;
-  input parameter ad_ :: <unsigned-char*>;
+  input parameter ad_ :: <C-buffer-offset>;
   input parameter adlen_ :: <C-unsigned-long>;
-  input parameter nsec_ :: <unsigned-char*>;
-  input parameter npub_ :: <unsigned-char*>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter nsec_ :: <C-buffer-offset>;
+  input parameter npub_ :: <C-buffer-offset>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_aead_aes256gcm_encrypt";
 end;
 
 define inline C-function crypto-aead-aes256gcm-decrypt
-  input parameter m_ :: <unsigned-char*>;
+  input parameter m_ :: <C-buffer-offset>;
   input parameter mlen-p_ :: <unsigned-long-long*>;
-  input parameter nsec_ :: <unsigned-char*>;
-  input parameter c_ :: <unsigned-char*>;
+  input parameter nsec_ :: <C-buffer-offset>;
+  input parameter c_ :: <C-buffer-offset>;
   input parameter clen_ :: <C-unsigned-long>;
-  input parameter ad_ :: <unsigned-char*>;
+  input parameter ad_ :: <C-buffer-offset>;
   input parameter adlen_ :: <C-unsigned-long>;
-  input parameter npub_ :: <unsigned-char*>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter npub_ :: <C-buffer-offset>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_aead_aes256gcm_decrypt";
 end;
@@ -78,34 +78,34 @@ end;
 define C-pointer-type <unsigned-char<@512>*> => <unsigned-char<@512>>;
 define inline C-function crypto-aead-aes256gcm-beforenm
   input parameter ctx-_ :: <unsigned-char<@512>*>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_aead_aes256gcm_beforenm";
 end;
 
 define inline C-function crypto-aead-aes256gcm-encrypt-afternm
-  input parameter c_ :: <unsigned-char*>;
+  input parameter c_ :: <C-buffer-offset>;
   input parameter clen-p_ :: <unsigned-long-long*>;
-  input parameter m_ :: <unsigned-char*>;
+  input parameter m_ :: <C-buffer-offset>;
   input parameter mlen_ :: <C-unsigned-long>;
-  input parameter ad_ :: <unsigned-char*>;
+  input parameter ad_ :: <C-buffer-offset>;
   input parameter adlen_ :: <C-unsigned-long>;
-  input parameter nsec_ :: <unsigned-char*>;
-  input parameter npub_ :: <unsigned-char*>;
+  input parameter nsec_ :: <C-buffer-offset>;
+  input parameter npub_ :: <C-buffer-offset>;
   input parameter ctx-_ :: <unsigned-char<@512>*>;
   result res :: <C-signed-int>;
   c-name: "crypto_aead_aes256gcm_encrypt_afternm";
 end;
 
 define inline C-function crypto-aead-aes256gcm-decrypt-afternm
-  input parameter m_ :: <unsigned-char*>;
+  input parameter m_ :: <C-buffer-offset>;
   input parameter mlen-p_ :: <unsigned-long-long*>;
-  input parameter nsec_ :: <unsigned-char*>;
-  input parameter c_ :: <unsigned-char*>;
+  input parameter nsec_ :: <C-buffer-offset>;
+  input parameter c_ :: <C-buffer-offset>;
   input parameter clen_ :: <C-unsigned-long>;
-  input parameter ad_ :: <unsigned-char*>;
+  input parameter ad_ :: <C-buffer-offset>;
   input parameter adlen_ :: <C-unsigned-long>;
-  input parameter npub_ :: <unsigned-char*>;
+  input parameter npub_ :: <C-buffer-offset>;
   input parameter ctx-_ :: <unsigned-char<@512>*>;
   result res :: <C-signed-int>;
   c-name: "crypto_aead_aes256gcm_decrypt_afternm";
@@ -140,29 +140,29 @@ define inline C-function crypto-aead-chacha20poly1305-abytes
 end;
 
 define inline C-function crypto-aead-chacha20poly1305-encrypt
-  input parameter c_ :: <unsigned-char*>;
+  input parameter c_ :: <C-buffer-offset>;
   input parameter clen-p_ :: <unsigned-long-long*>;
-  input parameter m_ :: <unsigned-char*>;
+  input parameter m_ :: <C-buffer-offset>;
   input parameter mlen_ :: <C-unsigned-long>;
-  input parameter ad_ :: <unsigned-char*>;
+  input parameter ad_ :: <C-buffer-offset>;
   input parameter adlen_ :: <C-unsigned-long>;
-  input parameter nsec_ :: <unsigned-char*>;
-  input parameter npub_ :: <unsigned-char*>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter nsec_ :: <C-buffer-offset>;
+  input parameter npub_ :: <C-buffer-offset>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_aead_chacha20poly1305_encrypt";
 end;
 
 define inline C-function crypto-aead-chacha20poly1305-decrypt
-  input parameter m_ :: <unsigned-char*>;
+  input parameter m_ :: <C-buffer-offset>;
   input parameter mlen-p_ :: <unsigned-long-long*>;
-  input parameter nsec_ :: <unsigned-char*>;
-  input parameter c_ :: <unsigned-char*>;
+  input parameter nsec_ :: <C-buffer-offset>;
+  input parameter c_ :: <C-buffer-offset>;
   input parameter clen_ :: <C-unsigned-long>;
-  input parameter ad_ :: <unsigned-char*>;
+  input parameter ad_ :: <C-buffer-offset>;
   input parameter adlen_ :: <C-unsigned-long>;
-  input parameter npub_ :: <unsigned-char*>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter npub_ :: <C-buffer-offset>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_aead_chacha20poly1305_decrypt";
 end;
@@ -173,29 +173,29 @@ define inline C-function crypto-aead-chacha20poly1305-ietf-npubbytes
 end;
 
 define inline C-function crypto-aead-chacha20poly1305-ietf-encrypt
-  input parameter c_ :: <unsigned-char*>;
+  input parameter c_ :: <C-buffer-offset>;
   input parameter clen-p_ :: <unsigned-long-long*>;
-  input parameter m_ :: <unsigned-char*>;
+  input parameter m_ :: <C-buffer-offset>;
   input parameter mlen_ :: <C-unsigned-long>;
-  input parameter ad_ :: <unsigned-char*>;
+  input parameter ad_ :: <C-buffer-offset>;
   input parameter adlen_ :: <C-unsigned-long>;
-  input parameter nsec_ :: <unsigned-char*>;
-  input parameter npub_ :: <unsigned-char*>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter nsec_ :: <C-buffer-offset>;
+  input parameter npub_ :: <C-buffer-offset>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_aead_chacha20poly1305_ietf_encrypt";
 end;
 
 define inline C-function crypto-aead-chacha20poly1305-ietf-decrypt
-  input parameter m_ :: <unsigned-char*>;
+  input parameter m_ :: <C-buffer-offset>;
   input parameter mlen-p_ :: <unsigned-long-long*>;
-  input parameter nsec_ :: <unsigned-char*>;
-  input parameter c_ :: <unsigned-char*>;
+  input parameter nsec_ :: <C-buffer-offset>;
+  input parameter c_ :: <C-buffer-offset>;
   input parameter clen_ :: <C-unsigned-long>;
-  input parameter ad_ :: <unsigned-char*>;
+  input parameter ad_ :: <C-buffer-offset>;
   input parameter adlen_ :: <C-unsigned-long>;
-  input parameter npub_ :: <unsigned-char*>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter npub_ :: <C-buffer-offset>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_aead_chacha20poly1305_ietf_decrypt";
 end;
@@ -296,7 +296,7 @@ end;
 define C-pointer-type <crypto-auth-hmacsha256-state*> => <crypto-auth-hmacsha256-state>;
 define inline C-function crypto-auth-hmacsha256-init
   input parameter state_ :: <crypto-auth-hmacsha256-state*>;
-  input parameter key_ :: <unsigned-char*>;
+  input parameter key_ :: <C-buffer-offset>;
   input parameter keylen_ :: <C-size-t>;
   result res :: <C-signed-int>;
   c-name: "crypto_auth_hmacsha256_init";
@@ -304,7 +304,7 @@ end;
 
 define inline C-function crypto-auth-hmacsha256-update
   input parameter state_ :: <crypto-auth-hmacsha256-state*>;
-  input parameter in_ :: <unsigned-char*>;
+  input parameter in_ :: <C-buffer-offset>;
   input parameter inlen_ :: <C-unsigned-long>;
   result res :: <C-signed-int>;
   c-name: "crypto_auth_hmacsha256_update";
@@ -312,7 +312,7 @@ end;
 
 define inline C-function crypto-auth-hmacsha256-final
   input parameter state_ :: <crypto-auth-hmacsha256-state*>;
-  input parameter out_ :: <unsigned-char*>;
+  input parameter out_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_auth_hmacsha256_final";
 end;
@@ -368,7 +368,7 @@ end;
 define C-pointer-type <crypto-auth-hmacsha512-state*> => <crypto-auth-hmacsha512-state>;
 define inline C-function crypto-auth-hmacsha512-init
   input parameter state_ :: <crypto-auth-hmacsha512-state*>;
-  input parameter key_ :: <unsigned-char*>;
+  input parameter key_ :: <C-buffer-offset>;
   input parameter keylen_ :: <C-size-t>;
   result res :: <C-signed-int>;
   c-name: "crypto_auth_hmacsha512_init";
@@ -376,7 +376,7 @@ end;
 
 define inline C-function crypto-auth-hmacsha512-update
   input parameter state_ :: <crypto-auth-hmacsha512-state*>;
-  input parameter in_ :: <unsigned-char*>;
+  input parameter in_ :: <C-buffer-offset>;
   input parameter inlen_ :: <C-unsigned-long>;
   result res :: <C-signed-int>;
   c-name: "crypto_auth_hmacsha512_update";
@@ -384,7 +384,7 @@ end;
 
 define inline C-function crypto-auth-hmacsha512-final
   input parameter state_ :: <crypto-auth-hmacsha512-state*>;
-  input parameter out_ :: <unsigned-char*>;
+  input parameter out_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_auth_hmacsha512_final";
 end;
@@ -430,7 +430,7 @@ end;
 
 define inline C-function crypto-auth-hmacsha512256-init
   input parameter state_ :: <crypto-auth-hmacsha512-state*>;
-  input parameter key_ :: <unsigned-char*>;
+  input parameter key_ :: <C-buffer-offset>;
   input parameter keylen_ :: <C-size-t>;
   result res :: <C-signed-int>;
   c-name: "crypto_auth_hmacsha512256_init";
@@ -438,7 +438,7 @@ end;
 
 define inline C-function crypto-auth-hmacsha512256-update
   input parameter state_ :: <crypto-auth-hmacsha512-state*>;
-  input parameter in_ :: <unsigned-char*>;
+  input parameter in_ :: <C-buffer-offset>;
   input parameter inlen_ :: <C-unsigned-long>;
   result res :: <C-signed-int>;
   c-name: "crypto_auth_hmacsha512256_update";
@@ -446,7 +446,7 @@ end;
 
 define inline C-function crypto-auth-hmacsha512256-final
   input parameter state_ :: <crypto-auth-hmacsha512-state*>;
-  input parameter out_ :: <unsigned-char*>;
+  input parameter out_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_auth_hmacsha512256_final";
 end;
@@ -486,62 +486,62 @@ define inline C-function crypto-box-primitive
 end;
 
 define inline C-function crypto-box-seed-keypair
-  input parameter pk_ :: <unsigned-char*>;
-  input parameter sk_ :: <unsigned-char*>;
-  input parameter seed_ :: <unsigned-char*>;
+  input parameter pk_ :: <C-buffer-offset>;
+  input parameter sk_ :: <C-buffer-offset>;
+  input parameter seed_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_box_seed_keypair";
 end;
 
 define inline C-function crypto-box-keypair
-  input parameter pk_ :: <unsigned-char*>;
-  input parameter sk_ :: <unsigned-char*>;
+  input parameter pk_ :: <C-buffer-offset>;
+  input parameter sk_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_box_keypair";
 end;
 
 define inline C-function crypto-box-easy
-  input parameter c_ :: <unsigned-char*>;
-  input parameter m_ :: <unsigned-char*>;
+  input parameter c_ :: <C-buffer-offset>;
+  input parameter m_ :: <C-buffer-offset>;
   input parameter mlen_ :: <C-unsigned-long>;
-  input parameter n_ :: <unsigned-char*>;
-  input parameter pk_ :: <unsigned-char*>;
-  input parameter sk_ :: <unsigned-char*>;
+  input parameter n_ :: <C-buffer-offset>;
+  input parameter pk_ :: <C-buffer-offset>;
+  input parameter sk_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_box_easy";
 end;
 
 define inline C-function crypto-box-open-easy
-  input parameter m_ :: <unsigned-char*>;
-  input parameter c_ :: <unsigned-char*>;
+  input parameter m_ :: <C-buffer-offset>;
+  input parameter c_ :: <C-buffer-offset>;
   input parameter clen_ :: <C-unsigned-long>;
-  input parameter n_ :: <unsigned-char*>;
-  input parameter pk_ :: <unsigned-char*>;
-  input parameter sk_ :: <unsigned-char*>;
+  input parameter n_ :: <C-buffer-offset>;
+  input parameter pk_ :: <C-buffer-offset>;
+  input parameter sk_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_box_open_easy";
 end;
 
 define inline C-function crypto-box-detached
-  input parameter c_ :: <unsigned-char*>;
-  input parameter mac_ :: <unsigned-char*>;
-  input parameter m_ :: <unsigned-char*>;
+  input parameter c_ :: <C-buffer-offset>;
+  input parameter mac_ :: <C-buffer-offset>;
+  input parameter m_ :: <C-buffer-offset>;
   input parameter mlen_ :: <C-unsigned-long>;
-  input parameter n_ :: <unsigned-char*>;
-  input parameter pk_ :: <unsigned-char*>;
-  input parameter sk_ :: <unsigned-char*>;
+  input parameter n_ :: <C-buffer-offset>;
+  input parameter pk_ :: <C-buffer-offset>;
+  input parameter sk_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_box_detached";
 end;
 
 define inline C-function crypto-box-open-detached
-  input parameter m_ :: <unsigned-char*>;
-  input parameter c_ :: <unsigned-char*>;
-  input parameter mac_ :: <unsigned-char*>;
+  input parameter m_ :: <C-buffer-offset>;
+  input parameter c_ :: <C-buffer-offset>;
+  input parameter mac_ :: <C-buffer-offset>;
   input parameter clen_ :: <C-unsigned-long>;
-  input parameter n_ :: <unsigned-char*>;
-  input parameter pk_ :: <unsigned-char*>;
-  input parameter sk_ :: <unsigned-char*>;
+  input parameter n_ :: <C-buffer-offset>;
+  input parameter pk_ :: <C-buffer-offset>;
+  input parameter sk_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_box_open_detached";
 end;
@@ -552,51 +552,51 @@ define inline C-function crypto-box-beforenmbytes
 end;
 
 define inline C-function crypto-box-beforenm
-  input parameter k_ :: <unsigned-char*>;
-  input parameter pk_ :: <unsigned-char*>;
-  input parameter sk_ :: <unsigned-char*>;
+  input parameter k_ :: <C-buffer-offset>;
+  input parameter pk_ :: <C-buffer-offset>;
+  input parameter sk_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_box_beforenm";
 end;
 
 define inline C-function crypto-box-easy-afternm
-  input parameter c_ :: <unsigned-char*>;
-  input parameter m_ :: <unsigned-char*>;
+  input parameter c_ :: <C-buffer-offset>;
+  input parameter m_ :: <C-buffer-offset>;
   input parameter mlen_ :: <C-unsigned-long>;
-  input parameter n_ :: <unsigned-char*>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter n_ :: <C-buffer-offset>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_box_easy_afternm";
 end;
 
 define inline C-function crypto-box-open-easy-afternm
-  input parameter m_ :: <unsigned-char*>;
-  input parameter c_ :: <unsigned-char*>;
+  input parameter m_ :: <C-buffer-offset>;
+  input parameter c_ :: <C-buffer-offset>;
   input parameter clen_ :: <C-unsigned-long>;
-  input parameter n_ :: <unsigned-char*>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter n_ :: <C-buffer-offset>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_box_open_easy_afternm";
 end;
 
 define inline C-function crypto-box-detached-afternm
-  input parameter c_ :: <unsigned-char*>;
-  input parameter mac_ :: <unsigned-char*>;
-  input parameter m_ :: <unsigned-char*>;
+  input parameter c_ :: <C-buffer-offset>;
+  input parameter mac_ :: <C-buffer-offset>;
+  input parameter m_ :: <C-buffer-offset>;
   input parameter mlen_ :: <C-unsigned-long>;
-  input parameter n_ :: <unsigned-char*>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter n_ :: <C-buffer-offset>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_box_detached_afternm";
 end;
 
 define inline C-function crypto-box-open-detached-afternm
-  input parameter m_ :: <unsigned-char*>;
-  input parameter c_ :: <unsigned-char*>;
-  input parameter mac_ :: <unsigned-char*>;
+  input parameter m_ :: <C-buffer-offset>;
+  input parameter c_ :: <C-buffer-offset>;
+  input parameter mac_ :: <C-buffer-offset>;
   input parameter clen_ :: <C-unsigned-long>;
-  input parameter n_ :: <unsigned-char*>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter n_ :: <C-buffer-offset>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_box_open_detached_afternm";
 end;
@@ -607,20 +607,20 @@ define inline C-function crypto-box-sealbytes
 end;
 
 define inline C-function crypto-box-seal
-  input parameter c_ :: <unsigned-char*>;
-  input parameter m_ :: <unsigned-char*>;
+  input parameter c_ :: <C-buffer-offset>;
+  input parameter m_ :: <C-buffer-offset>;
   input parameter mlen_ :: <C-unsigned-long>;
-  input parameter pk_ :: <unsigned-char*>;
+  input parameter pk_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_box_seal";
 end;
 
 define inline C-function crypto-box-seal-open
-  input parameter m_ :: <unsigned-char*>;
-  input parameter c_ :: <unsigned-char*>;
+  input parameter m_ :: <C-buffer-offset>;
+  input parameter c_ :: <C-buffer-offset>;
   input parameter clen_ :: <C-unsigned-long>;
-  input parameter pk_ :: <unsigned-char*>;
-  input parameter sk_ :: <unsigned-char*>;
+  input parameter pk_ :: <C-buffer-offset>;
+  input parameter sk_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_box_seal_open";
 end;
@@ -636,43 +636,43 @@ define inline C-function crypto-box-boxzerobytes
 end;
 
 define inline C-function crypto-box
-  input parameter c_ :: <unsigned-char*>;
-  input parameter m_ :: <unsigned-char*>;
+  input parameter c_ :: <C-buffer-offset>;
+  input parameter m_ :: <C-buffer-offset>;
   input parameter mlen_ :: <C-unsigned-long>;
-  input parameter n_ :: <unsigned-char*>;
-  input parameter pk_ :: <unsigned-char*>;
-  input parameter sk_ :: <unsigned-char*>;
+  input parameter n_ :: <C-buffer-offset>;
+  input parameter pk_ :: <C-buffer-offset>;
+  input parameter sk_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_box";
 end;
 
 define inline C-function crypto-box-open
-  input parameter m_ :: <unsigned-char*>;
-  input parameter c_ :: <unsigned-char*>;
+  input parameter m_ :: <C-buffer-offset>;
+  input parameter c_ :: <C-buffer-offset>;
   input parameter clen_ :: <C-unsigned-long>;
-  input parameter n_ :: <unsigned-char*>;
-  input parameter pk_ :: <unsigned-char*>;
-  input parameter sk_ :: <unsigned-char*>;
+  input parameter n_ :: <C-buffer-offset>;
+  input parameter pk_ :: <C-buffer-offset>;
+  input parameter sk_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_box_open";
 end;
 
 define inline C-function crypto-box-afternm
-  input parameter c_ :: <unsigned-char*>;
-  input parameter m_ :: <unsigned-char*>;
+  input parameter c_ :: <C-buffer-offset>;
+  input parameter m_ :: <C-buffer-offset>;
   input parameter mlen_ :: <C-unsigned-long>;
-  input parameter n_ :: <unsigned-char*>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter n_ :: <C-buffer-offset>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_box_afternm";
 end;
 
 define inline C-function crypto-box-open-afternm
-  input parameter m_ :: <unsigned-char*>;
-  input parameter c_ :: <unsigned-char*>;
+  input parameter m_ :: <C-buffer-offset>;
+  input parameter c_ :: <C-buffer-offset>;
   input parameter clen_ :: <C-unsigned-long>;
-  input parameter n_ :: <unsigned-char*>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter n_ :: <C-buffer-offset>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_box_open_afternm";
 end;
@@ -738,66 +738,66 @@ define inline C-function crypto-box-curve25519xsalsa20poly1305-macbytes
 end;
 
 define inline C-function crypto-box-curve25519xsalsa20poly1305
-  input parameter c_ :: <unsigned-char*>;
-  input parameter m_ :: <unsigned-char*>;
+  input parameter c_ :: <C-buffer-offset>;
+  input parameter m_ :: <C-buffer-offset>;
   input parameter mlen_ :: <C-unsigned-long>;
-  input parameter n_ :: <unsigned-char*>;
-  input parameter pk_ :: <unsigned-char*>;
-  input parameter sk_ :: <unsigned-char*>;
+  input parameter n_ :: <C-buffer-offset>;
+  input parameter pk_ :: <C-buffer-offset>;
+  input parameter sk_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_box_curve25519xsalsa20poly1305";
 end;
 
 define inline C-function crypto-box-curve25519xsalsa20poly1305-open
-  input parameter m_ :: <unsigned-char*>;
-  input parameter c_ :: <unsigned-char*>;
+  input parameter m_ :: <C-buffer-offset>;
+  input parameter c_ :: <C-buffer-offset>;
   input parameter clen_ :: <C-unsigned-long>;
-  input parameter n_ :: <unsigned-char*>;
-  input parameter pk_ :: <unsigned-char*>;
-  input parameter sk_ :: <unsigned-char*>;
+  input parameter n_ :: <C-buffer-offset>;
+  input parameter pk_ :: <C-buffer-offset>;
+  input parameter sk_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_box_curve25519xsalsa20poly1305_open";
 end;
 
 define inline C-function crypto-box-curve25519xsalsa20poly1305-seed-keypair
-  input parameter pk_ :: <unsigned-char*>;
-  input parameter sk_ :: <unsigned-char*>;
-  input parameter seed_ :: <unsigned-char*>;
+  input parameter pk_ :: <C-buffer-offset>;
+  input parameter sk_ :: <C-buffer-offset>;
+  input parameter seed_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_box_curve25519xsalsa20poly1305_seed_keypair";
 end;
 
 define inline C-function crypto-box-curve25519xsalsa20poly1305-keypair
-  input parameter pk_ :: <unsigned-char*>;
-  input parameter sk_ :: <unsigned-char*>;
+  input parameter pk_ :: <C-buffer-offset>;
+  input parameter sk_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_box_curve25519xsalsa20poly1305_keypair";
 end;
 
 define inline C-function crypto-box-curve25519xsalsa20poly1305-beforenm
-  input parameter k_ :: <unsigned-char*>;
-  input parameter pk_ :: <unsigned-char*>;
-  input parameter sk_ :: <unsigned-char*>;
+  input parameter k_ :: <C-buffer-offset>;
+  input parameter pk_ :: <C-buffer-offset>;
+  input parameter sk_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_box_curve25519xsalsa20poly1305_beforenm";
 end;
 
 define inline C-function crypto-box-curve25519xsalsa20poly1305-afternm
-  input parameter c_ :: <unsigned-char*>;
-  input parameter m_ :: <unsigned-char*>;
+  input parameter c_ :: <C-buffer-offset>;
+  input parameter m_ :: <C-buffer-offset>;
   input parameter mlen_ :: <C-unsigned-long>;
-  input parameter n_ :: <unsigned-char*>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter n_ :: <C-buffer-offset>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_box_curve25519xsalsa20poly1305_afternm";
 end;
 
 define inline C-function crypto-box-curve25519xsalsa20poly1305-open-afternm
-  input parameter m_ :: <unsigned-char*>;
-  input parameter c_ :: <unsigned-char*>;
+  input parameter m_ :: <C-buffer-offset>;
+  input parameter c_ :: <C-buffer-offset>;
   input parameter clen_ :: <C-unsigned-long>;
-  input parameter n_ :: <unsigned-char*>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter n_ :: <C-buffer-offset>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_box_curve25519xsalsa20poly1305_open_afternm";
 end;
@@ -839,10 +839,10 @@ define inline C-function crypto-core-hsalsa20-constbytes
 end;
 
 define inline C-function crypto-core-hsalsa20
-  input parameter out_ :: <unsigned-char*>;
-  input parameter in_ :: <unsigned-char*>;
-  input parameter k_ :: <unsigned-char*>;
-  input parameter c_ :: <unsigned-char*>;
+  input parameter out_ :: <C-buffer-offset>;
+  input parameter in_ :: <C-buffer-offset>;
+  input parameter k_ :: <C-buffer-offset>;
+  input parameter c_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_core_hsalsa20";
 end;
@@ -876,10 +876,10 @@ define inline C-function crypto-core-salsa20-constbytes
 end;
 
 define inline C-function crypto-core-salsa20
-  input parameter out_ :: <unsigned-char*>;
-  input parameter in_ :: <unsigned-char*>;
-  input parameter k_ :: <unsigned-char*>;
-  input parameter c_ :: <unsigned-char*>;
+  input parameter out_ :: <C-buffer-offset>;
+  input parameter in_ :: <C-buffer-offset>;
+  input parameter k_ :: <C-buffer-offset>;
+  input parameter c_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_core_salsa20";
 end;
@@ -913,10 +913,10 @@ define inline C-function crypto-core-salsa2012-constbytes
 end;
 
 define inline C-function crypto-core-salsa2012
-  input parameter out_ :: <unsigned-char*>;
-  input parameter in_ :: <unsigned-char*>;
-  input parameter k_ :: <unsigned-char*>;
-  input parameter c_ :: <unsigned-char*>;
+  input parameter out_ :: <C-buffer-offset>;
+  input parameter in_ :: <C-buffer-offset>;
+  input parameter k_ :: <C-buffer-offset>;
+  input parameter c_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_core_salsa2012";
 end;
@@ -950,10 +950,10 @@ define inline C-function crypto-core-salsa208-constbytes
 end;
 
 define inline C-function crypto-core-salsa208
-  input parameter out_ :: <unsigned-char*>;
-  input parameter in_ :: <unsigned-char*>;
-  input parameter k_ :: <unsigned-char*>;
-  input parameter c_ :: <unsigned-char*>;
+  input parameter out_ :: <C-buffer-offset>;
+  input parameter in_ :: <C-buffer-offset>;
+  input parameter k_ :: <C-buffer-offset>;
+  input parameter c_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_core_salsa208";
 end;
@@ -1018,11 +1018,11 @@ define inline C-function crypto-generichash-statebytes
 end;
 
 define inline C-function crypto-generichash
-  input parameter out_ :: <unsigned-char*>;
+  input parameter out_ :: <C-buffer-offset>;
   input parameter outlen_ :: <C-size-t>;
-  input parameter in_ :: <unsigned-char*>;
+  input parameter in_ :: <C-buffer-offset>;
   input parameter inlen_ :: <C-unsigned-long>;
-  input parameter key_ :: <unsigned-char*>;
+  input parameter key_ :: <C-buffer-offset>;
   input parameter keylen_ :: <C-size-t>;
   result res :: <C-signed-int>;
   c-name: "crypto_generichash";
@@ -1031,7 +1031,7 @@ end;
 define C-pointer-type <crypto-generichash-blake2b-state*> => <crypto-generichash-blake2b-state>;
 define inline C-function crypto-generichash-init
   input parameter state_ :: <crypto-generichash-blake2b-state*>;
-  input parameter key_ :: <unsigned-char*>;
+  input parameter key_ :: <C-buffer-offset>;
   input parameter keylen_ :: <C-size-t>;
   input parameter outlen_ :: <C-size-t>;
   result res :: <C-signed-int>;
@@ -1040,7 +1040,7 @@ end;
 
 define inline C-function crypto-generichash-update
   input parameter state_ :: <crypto-generichash-blake2b-state*>;
-  input parameter in_ :: <unsigned-char*>;
+  input parameter in_ :: <C-buffer-offset>;
   input parameter inlen_ :: <C-unsigned-long>;
   result res :: <C-signed-int>;
   c-name: "crypto_generichash_update";
@@ -1048,7 +1048,7 @@ end;
 
 define inline C-function crypto-generichash-final
   input parameter state_ :: <crypto-generichash-blake2b-state*>;
-  input parameter out_ :: <unsigned-char*>;
+  input parameter out_ :: <C-buffer-offset>;
   input parameter outlen_ :: <C-size-t>;
   result res :: <C-signed-int>;
   c-name: "crypto_generichash_final";
@@ -1109,32 +1109,32 @@ define inline C-function crypto-generichash-blake2b-personalbytes
 end;
 
 define inline C-function crypto-generichash-blake2b
-  input parameter out_ :: <unsigned-char*>;
+  input parameter out_ :: <C-buffer-offset>;
   input parameter outlen_ :: <C-size-t>;
-  input parameter in_ :: <unsigned-char*>;
+  input parameter in_ :: <C-buffer-offset>;
   input parameter inlen_ :: <C-unsigned-long>;
-  input parameter key_ :: <unsigned-char*>;
+  input parameter key_ :: <C-buffer-offset>;
   input parameter keylen_ :: <C-size-t>;
   result res :: <C-signed-int>;
   c-name: "crypto_generichash_blake2b";
 end;
 
 define inline C-function crypto-generichash-blake2b-salt-personal
-  input parameter out_ :: <unsigned-char*>;
+  input parameter out_ :: <C-buffer-offset>;
   input parameter outlen_ :: <C-size-t>;
-  input parameter in_ :: <unsigned-char*>;
+  input parameter in_ :: <C-buffer-offset>;
   input parameter inlen_ :: <C-unsigned-long>;
-  input parameter key_ :: <unsigned-char*>;
+  input parameter key_ :: <C-buffer-offset>;
   input parameter keylen_ :: <C-size-t>;
-  input parameter salt_ :: <unsigned-char*>;
-  input parameter personal_ :: <unsigned-char*>;
+  input parameter salt_ :: <C-buffer-offset>;
+  input parameter personal_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_generichash_blake2b_salt_personal";
 end;
 
 define inline C-function crypto-generichash-blake2b-init
   input parameter state_ :: <crypto-generichash-blake2b-state*>;
-  input parameter key_ :: <unsigned-char*>;
+  input parameter key_ :: <C-buffer-offset>;
   input parameter keylen_ :: <C-size-t>;
   input parameter outlen_ :: <C-size-t>;
   result res :: <C-signed-int>;
@@ -1143,18 +1143,18 @@ end;
 
 define inline C-function crypto-generichash-blake2b-init-salt-personal
   input parameter state_ :: <crypto-generichash-blake2b-state*>;
-  input parameter key_ :: <unsigned-char*>;
+  input parameter key_ :: <C-buffer-offset>;
   input parameter keylen_ :: <C-size-t>;
   input parameter outlen_ :: <C-size-t>;
-  input parameter salt_ :: <unsigned-char*>;
-  input parameter personal_ :: <unsigned-char*>;
+  input parameter salt_ :: <C-buffer-offset>;
+  input parameter personal_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_generichash_blake2b_init_salt_personal";
 end;
 
 define inline C-function crypto-generichash-blake2b-update
   input parameter state_ :: <crypto-generichash-blake2b-state*>;
-  input parameter in_ :: <unsigned-char*>;
+  input parameter in_ :: <C-buffer-offset>;
   input parameter inlen_ :: <C-unsigned-long>;
   result res :: <C-signed-int>;
   c-name: "crypto_generichash_blake2b_update";
@@ -1162,7 +1162,7 @@ end;
 
 define inline C-function crypto-generichash-blake2b-final
   input parameter state_ :: <crypto-generichash-blake2b-state*>;
-  input parameter out_ :: <unsigned-char*>;
+  input parameter out_ :: <C-buffer-offset>;
   input parameter outlen_ :: <C-size-t>;
   result res :: <C-signed-int>;
   c-name: "crypto_generichash_blake2b_final";
@@ -1190,8 +1190,8 @@ define inline C-function crypto-hash-bytes
 end;
 
 define inline C-function crypto-hash
-  input parameter out_ :: <unsigned-char*>;
-  input parameter in_ :: <unsigned-char*>;
+  input parameter out_ :: <C-buffer-offset>;
+  input parameter in_ :: <C-buffer-offset>;
   input parameter inlen_ :: <C-unsigned-long>;
   result res :: <C-signed-int>;
   c-name: "crypto_hash";
@@ -1217,8 +1217,8 @@ define inline C-function crypto-hash-sha256-bytes
 end;
 
 define inline C-function crypto-hash-sha256
-  input parameter out_ :: <unsigned-char*>;
-  input parameter in_ :: <unsigned-char*>;
+  input parameter out_ :: <C-buffer-offset>;
+  input parameter in_ :: <C-buffer-offset>;
   input parameter inlen_ :: <C-unsigned-long>;
   result res :: <C-signed-int>;
   c-name: "crypto_hash_sha256";
@@ -1233,7 +1233,7 @@ end;
 
 define inline C-function crypto-hash-sha256-update
   input parameter state_ :: <crypto-hash-sha256-state*>;
-  input parameter in_ :: <unsigned-char*>;
+  input parameter in_ :: <C-buffer-offset>;
   input parameter inlen_ :: <C-unsigned-long>;
   result res :: <C-signed-int>;
   c-name: "crypto_hash_sha256_update";
@@ -1241,7 +1241,7 @@ end;
 
 define inline C-function crypto-hash-sha256-final
   input parameter state_ :: <crypto-hash-sha256-state*>;
-  input parameter out_ :: <unsigned-char*>;
+  input parameter out_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_hash_sha256_final";
 end;
@@ -1259,8 +1259,8 @@ define inline C-function crypto-hash-sha512-bytes
 end;
 
 define inline C-function crypto-hash-sha512
-  input parameter out_ :: <unsigned-char*>;
-  input parameter in_ :: <unsigned-char*>;
+  input parameter out_ :: <C-buffer-offset>;
+  input parameter in_ :: <C-buffer-offset>;
   input parameter inlen_ :: <C-unsigned-long>;
   result res :: <C-signed-int>;
   c-name: "crypto_hash_sha512";
@@ -1275,7 +1275,7 @@ end;
 
 define inline C-function crypto-hash-sha512-update
   input parameter state_ :: <crypto-hash-sha512-state*>;
-  input parameter in_ :: <unsigned-char*>;
+  input parameter in_ :: <C-buffer-offset>;
   input parameter inlen_ :: <C-unsigned-long>;
   result res :: <C-signed-int>;
   c-name: "crypto_hash_sha512_update";
@@ -1283,7 +1283,7 @@ end;
 
 define inline C-function crypto-hash-sha512-final
   input parameter state_ :: <crypto-hash-sha512-state*>;
-  input parameter out_ :: <unsigned-char*>;
+  input parameter out_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_hash_sha512_final";
 end;
@@ -1317,19 +1317,19 @@ define inline C-function crypto-onetimeauth-primitive
 end;
 
 define inline C-function crypto-onetimeauth
-  input parameter out_ :: <unsigned-char*>;
-  input parameter in_ :: <unsigned-char*>;
+  input parameter out_ :: <C-buffer-offset>;
+  input parameter in_ :: <C-buffer-offset>;
   input parameter inlen_ :: <C-unsigned-long>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_onetimeauth";
 end;
 
 define inline C-function crypto-onetimeauth-verify
-  input parameter h_ :: <unsigned-char*>;
-  input parameter in_ :: <unsigned-char*>;
+  input parameter h_ :: <C-buffer-offset>;
+  input parameter in_ :: <C-buffer-offset>;
   input parameter inlen_ :: <C-unsigned-long>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_onetimeauth_verify";
 end;
@@ -1337,14 +1337,14 @@ end;
 define C-pointer-type <crypto-onetimeauth-poly1305-state*> => <crypto-onetimeauth-poly1305-state>;
 define inline C-function crypto-onetimeauth-init
   input parameter state_ :: <crypto-onetimeauth-poly1305-state*>;
-  input parameter key_ :: <unsigned-char*>;
+  input parameter key_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_onetimeauth_init";
 end;
 
 define inline C-function crypto-onetimeauth-update
   input parameter state_ :: <crypto-onetimeauth-poly1305-state*>;
-  input parameter in_ :: <unsigned-char*>;
+  input parameter in_ :: <C-buffer-offset>;
   input parameter inlen_ :: <C-unsigned-long>;
   result res :: <C-signed-int>;
   c-name: "crypto_onetimeauth_update";
@@ -1352,7 +1352,7 @@ end;
 
 define inline C-function crypto-onetimeauth-final
   input parameter state_ :: <crypto-onetimeauth-poly1305-state*>;
-  input parameter out_ :: <unsigned-char*>;
+  input parameter out_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_onetimeauth_final";
 end;
@@ -1374,33 +1374,33 @@ define inline C-function crypto-onetimeauth-poly1305-keybytes
 end;
 
 define inline C-function crypto-onetimeauth-poly1305
-  input parameter out_ :: <unsigned-char*>;
-  input parameter in_ :: <unsigned-char*>;
+  input parameter out_ :: <C-buffer-offset>;
+  input parameter in_ :: <C-buffer-offset>;
   input parameter inlen_ :: <C-unsigned-long>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_onetimeauth_poly1305";
 end;
 
 define inline C-function crypto-onetimeauth-poly1305-verify
-  input parameter h_ :: <unsigned-char*>;
-  input parameter in_ :: <unsigned-char*>;
+  input parameter h_ :: <C-buffer-offset>;
+  input parameter in_ :: <C-buffer-offset>;
   input parameter inlen_ :: <C-unsigned-long>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_onetimeauth_poly1305_verify";
 end;
 
 define inline C-function crypto-onetimeauth-poly1305-init
   input parameter state_ :: <crypto-onetimeauth-poly1305-state*>;
-  input parameter key_ :: <unsigned-char*>;
+  input parameter key_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_onetimeauth_poly1305_init";
 end;
 
 define inline C-function crypto-onetimeauth-poly1305-update
   input parameter state_ :: <crypto-onetimeauth-poly1305-state*>;
-  input parameter in_ :: <unsigned-char*>;
+  input parameter in_ :: <C-buffer-offset>;
   input parameter inlen_ :: <C-unsigned-long>;
   result res :: <C-signed-int>;
   c-name: "crypto_onetimeauth_poly1305_update";
@@ -1408,7 +1408,7 @@ end;
 
 define inline C-function crypto-onetimeauth-poly1305-final
   input parameter state_ :: <crypto-onetimeauth-poly1305-state*>;
-  input parameter out_ :: <unsigned-char*>;
+  input parameter out_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_onetimeauth_poly1305_final";
 end;
@@ -1453,11 +1453,11 @@ define inline C-function crypto-pwhash-scryptsalsa208sha256-memlimit-sensitive
 end;
 
 define inline C-function crypto-pwhash-scryptsalsa208sha256
-  input parameter out_ :: <unsigned-char*>;
+  input parameter out_ :: <C-buffer-offset>;
   input parameter outlen_ :: <C-unsigned-long>;
   input parameter passwd_ :: <C-string>;
   input parameter passwdlen_ :: <C-unsigned-long>;
-  input parameter salt_ :: <unsigned-char*>;
+  input parameter salt_ :: <C-buffer-offset>;
   input parameter opslimit_ :: <C-unsigned-long>;
   input parameter memlimit_ :: <C-size-t>;
   result res :: <C-signed-int>;
@@ -1488,14 +1488,14 @@ define constant <uint64-t> = <C-unsigned-long>;
 define constant <uint32-t> = <C-unsigned-int>;
 
 define inline C-function crypto-pwhash-scryptsalsa208sha256-ll
-  input parameter passwd_ :: <unsigned-char*>;
+  input parameter passwd_ :: <C-buffer-offset>;
   input parameter passwdlen_ :: <C-size-t>;
-  input parameter salt_ :: <unsigned-char*>;
+  input parameter salt_ :: <C-buffer-offset>;
   input parameter saltlen_ :: <C-size-t>;
   input parameter N_ :: <uint64-t>;
   input parameter r_ :: <uint32-t>;
   input parameter p_ :: <uint32-t>;
-  input parameter buf_ :: <unsigned-char*>;
+  input parameter buf_ :: <C-buffer-offset>;
   input parameter buflen_ :: <C-size-t>;
   result res :: <C-signed-int>;
   c-name: "crypto_pwhash_scryptsalsa208sha256_ll";
@@ -1531,16 +1531,16 @@ define inline C-function crypto-scalarmult-primitive
 end;
 
 define inline C-function crypto-scalarmult-base
-  input parameter q_ :: <unsigned-char*>;
-  input parameter n_ :: <unsigned-char*>;
+  input parameter q_ :: <C-buffer-offset>;
+  input parameter n_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_scalarmult_base";
 end;
 
 define inline C-function crypto-scalarmult
-  input parameter q_ :: <unsigned-char*>;
-  input parameter n_ :: <unsigned-char*>;
-  input parameter p_ :: <unsigned-char*>;
+  input parameter q_ :: <C-buffer-offset>;
+  input parameter n_ :: <C-buffer-offset>;
+  input parameter p_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_scalarmult";
 end;
@@ -1562,16 +1562,16 @@ define inline C-function crypto-scalarmult-curve25519-scalarbytes
 end;
 
 define inline C-function crypto-scalarmult-curve25519
-  input parameter q_ :: <unsigned-char*>;
-  input parameter n_ :: <unsigned-char*>;
-  input parameter p_ :: <unsigned-char*>;
+  input parameter q_ :: <C-buffer-offset>;
+  input parameter n_ :: <C-buffer-offset>;
+  input parameter p_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_scalarmult_curve25519";
 end;
 
 define inline C-function crypto-scalarmult-curve25519-base
-  input parameter q_ :: <unsigned-char*>;
-  input parameter n_ :: <unsigned-char*>;
+  input parameter q_ :: <C-buffer-offset>;
+  input parameter n_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_scalarmult_curve25519_base";
 end;
@@ -1601,43 +1601,43 @@ define inline C-function crypto-secretbox-primitive
 end;
 
 define inline C-function crypto-secretbox-easy
-  input parameter c_ :: <unsigned-char*>;
-  input parameter m_ :: <unsigned-char*>;
+  input parameter c_ :: <C-buffer-offset>;
+  input parameter m_ :: <C-buffer-offset>;
   input parameter mlen_ :: <C-unsigned-long>;
-  input parameter n_ :: <unsigned-char*>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter n_ :: <C-buffer-offset>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_secretbox_easy";
 end;
 
 define inline C-function crypto-secretbox-open-easy
-  input parameter m_ :: <unsigned-char*>;
-  input parameter c_ :: <unsigned-char*>;
+  input parameter m_ :: <C-buffer-offset>;
+  input parameter c_ :: <C-buffer-offset>;
   input parameter clen_ :: <C-unsigned-long>;
-  input parameter n_ :: <unsigned-char*>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter n_ :: <C-buffer-offset>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_secretbox_open_easy";
 end;
 
 define inline C-function crypto-secretbox-detached
-  input parameter c_ :: <unsigned-char*>;
-  input parameter mac_ :: <unsigned-char*>;
-  input parameter m_ :: <unsigned-char*>;
+  input parameter c_ :: <C-buffer-offset>;
+  input parameter mac_ :: <C-buffer-offset>;
+  input parameter m_ :: <C-buffer-offset>;
   input parameter mlen_ :: <C-unsigned-long>;
-  input parameter n_ :: <unsigned-char*>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter n_ :: <C-buffer-offset>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_secretbox_detached";
 end;
 
 define inline C-function crypto-secretbox-open-detached
-  input parameter m_ :: <unsigned-char*>;
-  input parameter c_ :: <unsigned-char*>;
-  input parameter mac_ :: <unsigned-char*>;
+  input parameter m_ :: <C-buffer-offset>;
+  input parameter c_ :: <C-buffer-offset>;
+  input parameter mac_ :: <C-buffer-offset>;
   input parameter clen_ :: <C-unsigned-long>;
-  input parameter n_ :: <unsigned-char*>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter n_ :: <C-buffer-offset>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_secretbox_open_detached";
 end;
@@ -1653,21 +1653,21 @@ define inline C-function crypto-secretbox-boxzerobytes
 end;
 
 define inline C-function crypto-secretbox
-  input parameter c_ :: <unsigned-char*>;
-  input parameter m_ :: <unsigned-char*>;
+  input parameter c_ :: <C-buffer-offset>;
+  input parameter m_ :: <C-buffer-offset>;
   input parameter mlen_ :: <C-unsigned-long>;
-  input parameter n_ :: <unsigned-char*>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter n_ :: <C-buffer-offset>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_secretbox";
 end;
 
 define inline C-function crypto-secretbox-open
-  input parameter m_ :: <unsigned-char*>;
-  input parameter c_ :: <unsigned-char*>;
+  input parameter m_ :: <C-buffer-offset>;
+  input parameter c_ :: <C-buffer-offset>;
   input parameter clen_ :: <C-unsigned-long>;
-  input parameter n_ :: <unsigned-char*>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter n_ :: <C-buffer-offset>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_secretbox_open";
 end;
@@ -1710,21 +1710,21 @@ define inline C-function crypto-secretbox-xsalsa20poly1305-macbytes
 end;
 
 define inline C-function crypto-secretbox-xsalsa20poly1305
-  input parameter c_ :: <unsigned-char*>;
-  input parameter m_ :: <unsigned-char*>;
+  input parameter c_ :: <C-buffer-offset>;
+  input parameter m_ :: <C-buffer-offset>;
   input parameter mlen_ :: <C-unsigned-long>;
-  input parameter n_ :: <unsigned-char*>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter n_ :: <C-buffer-offset>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_secretbox_xsalsa20poly1305";
 end;
 
 define inline C-function crypto-secretbox-xsalsa20poly1305-open
-  input parameter m_ :: <unsigned-char*>;
-  input parameter c_ :: <unsigned-char*>;
+  input parameter m_ :: <C-buffer-offset>;
+  input parameter c_ :: <C-buffer-offset>;
   input parameter clen_ :: <C-unsigned-long>;
-  input parameter n_ :: <unsigned-char*>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter n_ :: <C-buffer-offset>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_secretbox_xsalsa20poly1305_open";
 end;
@@ -1755,10 +1755,10 @@ define inline C-function crypto-shorthash-primitive
 end;
 
 define inline C-function crypto-shorthash
-  input parameter out_ :: <unsigned-char*>;
-  input parameter in_ :: <unsigned-char*>;
+  input parameter out_ :: <C-buffer-offset>;
+  input parameter in_ :: <C-buffer-offset>;
   input parameter inlen_ :: <C-unsigned-long>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_shorthash";
 end;
@@ -1780,10 +1780,10 @@ define inline C-function crypto-shorthash-siphash24-keybytes
 end;
 
 define inline C-function crypto-shorthash-siphash24
-  input parameter out_ :: <unsigned-char*>;
-  input parameter in_ :: <unsigned-char*>;
+  input parameter out_ :: <C-buffer-offset>;
+  input parameter in_ :: <C-buffer-offset>;
   input parameter inlen_ :: <C-unsigned-long>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_shorthash_siphash24";
 end;
@@ -1818,9 +1818,9 @@ define inline C-function crypto-sign-primitive
 end;
 
 define inline C-function crypto-sign-seed-keypair
-  input parameter pk_ :: <unsigned-char*>;
-  input parameter sk_ :: <unsigned-char*>;
-  input parameter seed_ :: <unsigned-char*>;
+  input parameter pk_ :: <C-buffer-offset>;
+  input parameter sk_ :: <C-buffer-offset>;
+  input parameter seed_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_sign_seed_keypair";
 end;
@@ -1948,30 +1948,30 @@ define inline C-function %crypto-sign-ed25519-keypair
 end;
 
 define inline C-function crypto-sign-ed25519-seed-keypair
-  input parameter pk_ :: <unsigned-char*>;
-  input parameter sk_ :: <unsigned-char*>;
-  input parameter seed_ :: <unsigned-char*>;
+  input parameter pk_ :: <C-buffer-offset>;
+  input parameter sk_ :: <C-buffer-offset>;
+  input parameter seed_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_sign_ed25519_seed_keypair";
 end;
 
 define inline C-function crypto-sign-ed25519-pk-to-curve25519
-  input parameter curve25519-pk_ :: <unsigned-char*>;
-  input parameter ed25519-pk_ :: <unsigned-char*>;
+  input parameter curve25519-pk_ :: <C-buffer-offset>;
+  input parameter ed25519-pk_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_sign_ed25519_pk_to_curve25519";
 end;
 
 define inline C-function crypto-sign-ed25519-sk-to-curve25519
-  input parameter curve25519-sk_ :: <unsigned-char*>;
-  input parameter ed25519-sk_ :: <unsigned-char*>;
+  input parameter curve25519-sk_ :: <C-buffer-offset>;
+  input parameter ed25519-sk_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_sign_ed25519_sk_to_curve25519";
 end;
 
 define inline C-function crypto-sign-ed25519-sk-to-seed
-  input parameter seed_ :: <unsigned-char*>;
-  input parameter sk_ :: <unsigned-char*>;
+  input parameter seed_ :: <C-buffer-offset>;
+  input parameter sk_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_sign_ed25519_sk_to_seed";
 end;
@@ -1992,28 +1992,28 @@ define constant $crypto-sign-ed25519-PUBLICKEYBYTES = 32;
 define constant $crypto-sign-ed25519-SECRETKEYBYTES = 64;
 
 define inline C-function crypto-sign-edwards25519sha512batch
-  input parameter sm_ :: <unsigned-char*>;
+  input parameter sm_ :: <C-buffer-offset>;
   input parameter smlen-p_ :: <unsigned-long-long*>;
-  input parameter m_ :: <unsigned-char*>;
+  input parameter m_ :: <C-buffer-offset>;
   input parameter mlen_ :: <C-unsigned-long>;
-  input parameter sk_ :: <unsigned-char*>;
+  input parameter sk_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_sign_edwards25519sha512batch";
 end;
 
 define inline C-function crypto-sign-edwards25519sha512batch-open
-  input parameter m_ :: <unsigned-char*>;
+  input parameter m_ :: <C-buffer-offset>;
   input parameter mlen-p_ :: <unsigned-long-long*>;
-  input parameter sm_ :: <unsigned-char*>;
+  input parameter sm_ :: <C-buffer-offset>;
   input parameter smlen_ :: <C-unsigned-long>;
-  input parameter pk_ :: <unsigned-char*>;
+  input parameter pk_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_sign_edwards25519sha512batch_open";
 end;
 
 define inline C-function crypto-sign-edwards25519sha512batch-keypair
-  input parameter pk_ :: <unsigned-char*>;
-  input parameter sk_ :: <unsigned-char*>;
+  input parameter pk_ :: <C-buffer-offset>;
+  input parameter sk_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_sign_edwards25519sha512batch_keypair";
 end;
@@ -2040,20 +2040,20 @@ define inline C-function crypto-stream-primitive
 end;
 
 define inline C-function crypto-stream
-  input parameter c_ :: <unsigned-char*>;
+  input parameter c_ :: <C-buffer-offset>;
   input parameter clen_ :: <C-unsigned-long>;
-  input parameter n_ :: <unsigned-char*>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter n_ :: <C-buffer-offset>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_stream";
 end;
 
 define inline C-function crypto-stream-xor
-  input parameter c_ :: <unsigned-char*>;
-  input parameter m_ :: <unsigned-char*>;
+  input parameter c_ :: <C-buffer-offset>;
+  input parameter m_ :: <C-buffer-offset>;
   input parameter mlen_ :: <C-unsigned-long>;
-  input parameter n_ :: <unsigned-char*>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter n_ :: <C-buffer-offset>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_stream_xor";
 end;
@@ -2080,46 +2080,46 @@ define inline C-function crypto-stream-aes128ctr-beforenmbytes
 end;
 
 define inline C-function crypto-stream-aes128ctr
-  input parameter out_ :: <unsigned-char*>;
+  input parameter out_ :: <C-buffer-offset>;
   input parameter outlen_ :: <C-unsigned-long>;
-  input parameter n_ :: <unsigned-char*>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter n_ :: <C-buffer-offset>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_stream_aes128ctr";
 end;
 
 define inline C-function crypto-stream-aes128ctr-xor
-  input parameter out_ :: <unsigned-char*>;
-  input parameter in_ :: <unsigned-char*>;
+  input parameter out_ :: <C-buffer-offset>;
+  input parameter in_ :: <C-buffer-offset>;
   input parameter inlen_ :: <C-unsigned-long>;
-  input parameter n_ :: <unsigned-char*>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter n_ :: <C-buffer-offset>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_stream_aes128ctr_xor";
 end;
 
 define inline C-function crypto-stream-aes128ctr-beforenm
-  input parameter c_ :: <unsigned-char*>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter c_ :: <C-buffer-offset>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_stream_aes128ctr_beforenm";
 end;
 
 define inline C-function crypto-stream-aes128ctr-afternm
-  input parameter out_ :: <unsigned-char*>;
+  input parameter out_ :: <C-buffer-offset>;
   input parameter len_ :: <C-unsigned-long>;
-  input parameter nonce_ :: <unsigned-char*>;
-  input parameter c_ :: <unsigned-char*>;
+  input parameter nonce_ :: <C-buffer-offset>;
+  input parameter c_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_stream_aes128ctr_afternm";
 end;
 
 define inline C-function crypto-stream-aes128ctr-xor-afternm
-  input parameter out_ :: <unsigned-char*>;
-  input parameter in_ :: <unsigned-char*>;
+  input parameter out_ :: <C-buffer-offset>;
+  input parameter in_ :: <C-buffer-offset>;
   input parameter len_ :: <C-unsigned-long>;
-  input parameter nonce_ :: <unsigned-char*>;
-  input parameter c_ :: <unsigned-char*>;
+  input parameter nonce_ :: <C-buffer-offset>;
+  input parameter c_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_stream_aes128ctr_xor_afternm";
 end;
@@ -2141,31 +2141,31 @@ define inline C-function crypto-stream-chacha20-noncebytes
 end;
 
 define inline C-function crypto-stream-chacha20
-  input parameter c_ :: <unsigned-char*>;
+  input parameter c_ :: <C-buffer-offset>;
   input parameter clen_ :: <C-unsigned-long>;
-  input parameter n_ :: <unsigned-char*>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter n_ :: <C-buffer-offset>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_stream_chacha20";
 end;
 
 define inline C-function crypto-stream-chacha20-xor
-  input parameter c_ :: <unsigned-char*>;
-  input parameter m_ :: <unsigned-char*>;
+  input parameter c_ :: <C-buffer-offset>;
+  input parameter m_ :: <C-buffer-offset>;
   input parameter mlen_ :: <C-unsigned-long>;
-  input parameter n_ :: <unsigned-char*>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter n_ :: <C-buffer-offset>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_stream_chacha20_xor";
 end;
 
 define inline C-function crypto-stream-chacha20-xor-ic
-  input parameter c_ :: <unsigned-char*>;
-  input parameter m_ :: <unsigned-char*>;
+  input parameter c_ :: <C-buffer-offset>;
+  input parameter m_ :: <C-buffer-offset>;
   input parameter mlen_ :: <C-unsigned-long>;
-  input parameter n_ :: <unsigned-char*>;
+  input parameter n_ :: <C-buffer-offset>;
   input parameter ic_ :: <uint64-t>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_stream_chacha20_xor_ic";
 end;
@@ -2176,31 +2176,31 @@ define inline C-function crypto-stream-chacha20-ietf-noncebytes
 end;
 
 define inline C-function crypto-stream-chacha20-ietf
-  input parameter c_ :: <unsigned-char*>;
+  input parameter c_ :: <C-buffer-offset>;
   input parameter clen_ :: <C-unsigned-long>;
-  input parameter n_ :: <unsigned-char*>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter n_ :: <C-buffer-offset>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_stream_chacha20_ietf";
 end;
 
 define inline C-function crypto-stream-chacha20-ietf-xor
-  input parameter c_ :: <unsigned-char*>;
-  input parameter m_ :: <unsigned-char*>;
+  input parameter c_ :: <C-buffer-offset>;
+  input parameter m_ :: <C-buffer-offset>;
   input parameter mlen_ :: <C-unsigned-long>;
-  input parameter n_ :: <unsigned-char*>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter n_ :: <C-buffer-offset>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_stream_chacha20_ietf_xor";
 end;
 
 define inline C-function crypto-stream-chacha20-ietf-xor-ic
-  input parameter c_ :: <unsigned-char*>;
-  input parameter m_ :: <unsigned-char*>;
+  input parameter c_ :: <C-buffer-offset>;
+  input parameter m_ :: <C-buffer-offset>;
   input parameter mlen_ :: <C-unsigned-long>;
-  input parameter n_ :: <unsigned-char*>;
+  input parameter n_ :: <C-buffer-offset>;
   input parameter ic_ :: <uint32-t>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_stream_chacha20_ietf_xor_ic";
 end;
@@ -2222,31 +2222,31 @@ define inline C-function crypto-stream-salsa20-noncebytes
 end;
 
 define inline C-function crypto-stream-salsa20
-  input parameter c_ :: <unsigned-char*>;
+  input parameter c_ :: <C-buffer-offset>;
   input parameter clen_ :: <C-unsigned-long>;
-  input parameter n_ :: <unsigned-char*>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter n_ :: <C-buffer-offset>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_stream_salsa20";
 end;
 
 define inline C-function crypto-stream-salsa20-xor
-  input parameter c_ :: <unsigned-char*>;
-  input parameter m_ :: <unsigned-char*>;
+  input parameter c_ :: <C-buffer-offset>;
+  input parameter m_ :: <C-buffer-offset>;
   input parameter mlen_ :: <C-unsigned-long>;
-  input parameter n_ :: <unsigned-char*>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter n_ :: <C-buffer-offset>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_stream_salsa20_xor";
 end;
 
 define inline C-function crypto-stream-salsa20-xor-ic
-  input parameter c_ :: <unsigned-char*>;
-  input parameter m_ :: <unsigned-char*>;
+  input parameter c_ :: <C-buffer-offset>;
+  input parameter m_ :: <C-buffer-offset>;
   input parameter mlen_ :: <C-unsigned-long>;
-  input parameter n_ :: <unsigned-char*>;
+  input parameter n_ :: <C-buffer-offset>;
   input parameter ic_ :: <uint64-t>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_stream_salsa20_xor_ic";
 end;
@@ -2266,20 +2266,20 @@ define inline C-function crypto-stream-salsa2012-noncebytes
 end;
 
 define inline C-function crypto-stream-salsa2012
-  input parameter c_ :: <unsigned-char*>;
+  input parameter c_ :: <C-buffer-offset>;
   input parameter clen_ :: <C-unsigned-long>;
-  input parameter n_ :: <unsigned-char*>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter n_ :: <C-buffer-offset>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_stream_salsa2012";
 end;
 
 define inline C-function crypto-stream-salsa2012-xor
-  input parameter c_ :: <unsigned-char*>;
-  input parameter m_ :: <unsigned-char*>;
+  input parameter c_ :: <C-buffer-offset>;
+  input parameter m_ :: <C-buffer-offset>;
   input parameter mlen_ :: <C-unsigned-long>;
-  input parameter n_ :: <unsigned-char*>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter n_ :: <C-buffer-offset>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_stream_salsa2012_xor";
 end;
@@ -2299,20 +2299,20 @@ define inline C-function crypto-stream-salsa208-noncebytes
 end;
 
 define inline C-function crypto-stream-salsa208
-  input parameter c_ :: <unsigned-char*>;
+  input parameter c_ :: <C-buffer-offset>;
   input parameter clen_ :: <C-unsigned-long>;
-  input parameter n_ :: <unsigned-char*>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter n_ :: <C-buffer-offset>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_stream_salsa208";
 end;
 
 define inline C-function crypto-stream-salsa208-xor
-  input parameter c_ :: <unsigned-char*>;
-  input parameter m_ :: <unsigned-char*>;
+  input parameter c_ :: <C-buffer-offset>;
+  input parameter m_ :: <C-buffer-offset>;
   input parameter mlen_ :: <C-unsigned-long>;
-  input parameter n_ :: <unsigned-char*>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter n_ :: <C-buffer-offset>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_stream_salsa208_xor";
 end;
@@ -2332,31 +2332,31 @@ define inline C-function crypto-stream-xsalsa20-noncebytes
 end;
 
 define inline C-function crypto-stream-xsalsa20
-  input parameter c_ :: <unsigned-char*>;
+  input parameter c_ :: <C-buffer-offset>;
   input parameter clen_ :: <C-unsigned-long>;
-  input parameter n_ :: <unsigned-char*>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter n_ :: <C-buffer-offset>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_stream_xsalsa20";
 end;
 
 define inline C-function crypto-stream-xsalsa20-xor
-  input parameter c_ :: <unsigned-char*>;
-  input parameter m_ :: <unsigned-char*>;
+  input parameter c_ :: <C-buffer-offset>;
+  input parameter m_ :: <C-buffer-offset>;
   input parameter mlen_ :: <C-unsigned-long>;
-  input parameter n_ :: <unsigned-char*>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter n_ :: <C-buffer-offset>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_stream_xsalsa20_xor";
 end;
 
 define inline C-function crypto-stream-xsalsa20-xor-ic
-  input parameter c_ :: <unsigned-char*>;
-  input parameter m_ :: <unsigned-char*>;
+  input parameter c_ :: <C-buffer-offset>;
+  input parameter m_ :: <C-buffer-offset>;
   input parameter mlen_ :: <C-unsigned-long>;
-  input parameter n_ :: <unsigned-char*>;
+  input parameter n_ :: <C-buffer-offset>;
   input parameter ic_ :: <uint64-t>;
-  input parameter k_ :: <unsigned-char*>;
+  input parameter k_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_stream_xsalsa20_xor_ic";
 end;
@@ -2371,8 +2371,8 @@ define inline C-function crypto-verify-16-bytes
 end;
 
 define inline C-function crypto-verify-16
-  input parameter x_ :: <unsigned-char*>;
-  input parameter y_ :: <unsigned-char*>;
+  input parameter x_ :: <C-buffer-offset>;
+  input parameter y_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_verify_16";
 end;
@@ -2385,8 +2385,8 @@ define inline C-function crypto-verify-32-bytes
 end;
 
 define inline C-function crypto-verify-32
-  input parameter x_ :: <unsigned-char*>;
-  input parameter y_ :: <unsigned-char*>;
+  input parameter x_ :: <C-buffer-offset>;
+  input parameter y_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_verify_32";
 end;
@@ -2399,8 +2399,8 @@ define inline C-function crypto-verify-64-bytes
 end;
 
 define inline C-function crypto-verify-64
-  input parameter x_ :: <unsigned-char*>;
-  input parameter y_ :: <unsigned-char*>;
+  input parameter x_ :: <C-buffer-offset>;
+  input parameter y_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_verify_64";
 end;
@@ -2461,7 +2461,7 @@ define inline C-function randombytes-implementation-name
 end;
 
 define inline C-function randombytes
-  input parameter buf_ :: <unsigned-char*>;
+  input parameter buf_ :: <C-buffer-offset>;
   input parameter buf-len_ :: <C-unsigned-long>;
   c-name: "randombytes";
 end;
@@ -2521,29 +2521,29 @@ define inline C-function sodium-memcmp
 end;
 
 define inline C-function sodium-compare
-  input parameter b1-_ :: <unsigned-char*>;
-  input parameter b2-_ :: <unsigned-char*>;
+  input parameter b1-_ :: <C-buffer-offset>;
+  input parameter b2-_ :: <C-buffer-offset>;
   input parameter len_ :: <C-size-t>;
   result res :: <C-signed-int>;
   c-name: "sodium_compare";
 end;
 
 define inline C-function sodium-is-zero
-  input parameter n_ :: <unsigned-char*>;
+  input parameter n_ :: <C-buffer-offset>;
   input parameter nlen_ :: <C-size-t>;
   result res :: <C-signed-int>;
   c-name: "sodium_is_zero";
 end;
 
 define inline C-function sodium-increment
-  input parameter n_ :: <unsigned-char*>;
+  input parameter n_ :: <C-buffer-offset>;
   input parameter nlen_ :: <C-size-t>;
   c-name: "sodium_increment";
 end;
 
 define inline C-function sodium-add
-  input parameter a_ :: <unsigned-char*>;
-  input parameter b_ :: <unsigned-char*>;
+  input parameter a_ :: <C-buffer-offset>;
+  input parameter b_ :: <C-buffer-offset>;
   input parameter len_ :: <C-size-t>;
   c-name: "sodium_add";
 end;
@@ -2551,7 +2551,7 @@ end;
 define inline C-function sodium-bin2hex
   input parameter hex_ :: <C-string>;
   input parameter hex-maxlen_ :: <C-size-t>;
-  input parameter bin_ :: <unsigned-char*>;
+  input parameter bin_ :: <C-buffer-offset>;
   input parameter bin-len_ :: <C-size-t>;
   result res :: <C-string>;
   c-name: "sodium_bin2hex";
@@ -2560,7 +2560,7 @@ end;
 define C-pointer-type <size-t*> => <C-size-t>;
 define C-pointer-type <statically-typed-pointer*> => <C-string>;
 define inline C-function sodium-hex2bin
-  input parameter bin_ :: <unsigned-char*>;
+  input parameter bin_ :: <C-buffer-offset>;
   input parameter bin-maxlen_ :: <C-size-t>;
   input parameter hex_ :: <C-string>;
   input parameter hex-len_ :: <C-size-t>;
