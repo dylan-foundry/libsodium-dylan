@@ -14,6 +14,16 @@ define test crypto-auth-test ()
   assert-signals(<sodium-error>, crypto-auth-verify(bad-hash, data, key));
 end test;
 
+define test crypto-auth-byte-string-test ()
+  // This is taken from Test Case AUTH512-3 in https://tools.ietf.org/html/rfc4868
+  let key = make(<byte-vector>, size: $CRYPTO-AUTH-KEYBYTES, fill: as(<byte>, 'a'));
+  let data = make(<byte-string>, size: 50, fill: 'd');
+
+  let hash = crypto-auth(data, key);
+  assert-no-errors(crypto-auth-verify(hash, data, key));
+end test;
+
 define suite auth-test-suite ()
   test crypto-auth-test;
+  test crypto-auth-byte-string-test;
 end suite;
