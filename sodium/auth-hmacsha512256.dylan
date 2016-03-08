@@ -1,5 +1,5 @@
 module: sodium
-synopsis: friendly interface to hashing
+synopsis: bindings for secret key authentication
 author: Bruce Mitchener, Jr.
 copyright: See LICENSE file in this distribution.
 
