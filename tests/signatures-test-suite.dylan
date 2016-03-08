@@ -11,11 +11,11 @@ define function sign-round-trip-byte-string-helper
   let signed-payload = crypto-sign(message, secret-key);
 
   let unsigned-message = crypto-sign-open(signed-payload, public-key);
-  assert-equal(message, unsigned-message);
+  assert-equal(message, as(<byte-string>, unsigned-message));
 
   let data = signed-payload-data(signed-payload);
   let old = data[3];
-  data[3] := as(<character>, as(<integer>, data[3]) + 1);
+  data[3] := as(<integer>, data[3]) + 1;
   assert-signals(<sodium-error>,
                  crypto-sign-open(signed-payload, public-key),
                  "mutated signed payload fails to open");
@@ -51,7 +51,7 @@ define function sign-round-trip-detached-helper
 
   let data = detached-signature-data(signature);
   let old = data[3];
-  data[3] := as(<character>, as(<integer>, data[3]) + 1);
+  data[3] := as(<integer>, data[3]) + 1;
   assert-signals(<sodium-error>,
                  crypto-sign-verify-detached(signature, message, public-key),
                  "mutated signature fails to open");

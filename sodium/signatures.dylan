@@ -14,7 +14,7 @@ define class <secret-signing-key> (<object>)
 end class;
 
 define class <signed-payload> (<object>)
-  constant slot signed-payload-data :: <C-string>,
+  constant slot signed-payload-data :: <byte-vector>,
     required-init-keyword: data:;
   constant slot signed-payload-size :: <integer>,
     required-init-keyword: size:;
@@ -28,10 +28,10 @@ define sealed generic crypto-sign
 define sealed generic crypto-sign-open
     (signed-payload :: <signed-payload>,
      public-key :: <public-signing-key>)
- => (payload :: <byte-string>);
+ => (payload :: <byte-vector>);
 
 define class <detached-signature> (<object>)
-  constant slot detached-signature-data :: <C-string>,
+  constant slot detached-signature-data :: <byte-vector>,
     required-init-keyword: data:;
   constant slot detached-signature-size :: <integer>,
     required-init-keyword: size:;

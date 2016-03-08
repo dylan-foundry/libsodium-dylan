@@ -22,63 +22,47 @@ define function crypto-sign-keypair
   values(public-key, secret-key)
 end function;
 
-define inline function crypto-sign-default-helper
-    (payload :: <C-string>, payload-size :: <integer>,
+define method crypto-sign
+    (payload :: type-union(<byte-vector>, <byte-string>),
      secret-key :: <default-secret-signing-key>)
  => (signed-payload :: <signed-payload>)
-  let signed-payload = make(<C-string>, size: payload.size + $crypto-sign-BYTES);
+  let signed-payload = make(<byte-vector>, size: payload.size + $crypto-sign-BYTES);
   let signed-payload-len = make(<C-long*>);
-  let res = %crypto-sign(signed-payload, signed-payload-len,
-                         payload, payload-size,
+  let res = %crypto-sign(byte-storage-address(signed-payload), signed-payload-len,
+                         byte-storage-address(payload), payload.size,
                          secret-signing-key-data(secret-key));
   check-error(res, "crypto-sign");
   make(<signed-payload>, data: signed-payload,
        size: as(<integer>, C-long-at(signed-payload-len)))
-end function;
-
-define method crypto-sign
-    (payload :: <byte-vector>, secret-key :: <default-secret-signing-key>)
- => (signed-payload :: <signed-payload>)
-  with-c-string (payload-data = payload)
-    crypto-sign-default-helper(payload-data, payload.size, secret-key)
-  end with-c-string
-end method;
-
-define method crypto-sign
-    (payload :: <byte-string>, secret-key :: <default-secret-signing-key>)
- => (signed-payload :: <signed-payload>)
-  with-c-string (payload-data = payload)
-    crypto-sign-default-helper(payload-data, payload.size, secret-key)
-  end with-c-string
 end method;
 
 define method crypto-sign-open
     (signed-payload :: <signed-payload>,
      public-key :: <default-public-signing-key>)
- => (payload :: <byte-string>)
+ => (payload :: <byte-vector>)
   let unsigned-message
-    = make(<C-string>, size: signed-payload-size(signed-payload) - $crypto-sign-BYTES);
+    = make(<byte-vector>, size: signed-payload-size(signed-payload) - $crypto-sign-BYTES);
   let unsigned-message-len = make(<C-long*>);
-  let res = %crypto-sign-open(unsigned-message, unsigned-message-len,
-                              signed-payload-data(signed-payload),
-                              signed-payload-size(signed-payload),
+  let payload = signed-payload-data(signed-payload);
+  let payload-size = signed-payload-size(signed-payload);
+  let res = %crypto-sign-open(byte-storage-address(unsigned-message), unsigned-message-len,
+                              byte-storage-address(payload),
+                              payload-size,
                               public-signing-key-data(public-key));
   check-error(res, "crypto-sign-open");
-  as(<byte-string>, unsigned-message)
+  unsigned-message
 end method;
 
 define method crypto-sign-detached
     (payload :: type-union(<byte-vector>, <byte-string>),
      secret-key :: <default-secret-signing-key>)
  => (signature :: <detached-signature>)
-  let signature-data = make(<C-string>, size: $crypto-sign-BYTES);
+  let signature-data = make(<byte-vector>, size: $crypto-sign-BYTES);
   let signature-data-size = make(<C-long*>);
-  with-c-string (payload-data = payload)
-    let res = %crypto-sign-detached(signature-data, signature-data-size,
-                                    payload-data, payload.size,
-                                    secret-signing-key-data(secret-key));
-    check-error(res, "crypto-sign-detached");
-  end with-c-string;
+  let res = %crypto-sign-detached(byte-storage-address(signature-data), signature-data-size,
+                                  byte-storage-address(payload), payload.size,
+                                  secret-signing-key-data(secret-key));
+  check-error(res, "crypto-sign-detached");
   make(<detached-signature>, data: signature-data,
        size: as(<integer>, C-long-at(signature-data-size)))
 end method;
@@ -88,11 +72,9 @@ define method crypto-sign-verify-detached
      payload :: type-union(<byte-vector>, <byte-string>),
      public-key :: <default-public-signing-key>)
  => ()
-  with-c-string (payload-data = payload)
-    let res
-      = %crypto-sign-verify-detached(detached-signature-data(signature),
-                                     payload-data, payload.size,
-                                     public-signing-key-data(public-key));
-    check-error(res, "crypto-sign-verify-detached");
-  end with-c-string;
+  let res
+    = %crypto-sign-verify-detached(byte-storage-address(detached-signature-data(signature)),
+                                   byte-storage-address(payload), payload.size,
+                                   public-signing-key-data(public-key));
+  check-error(res, "crypto-sign-verify-detached");
 end method;

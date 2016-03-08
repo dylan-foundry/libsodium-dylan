@@ -1832,39 +1832,39 @@ define inline C-function crypto-sign-keypair
   c-name: "crypto_sign_keypair";
 end;
 
-define inline C-function crypto-sign
-  input parameter sm_ :: <unsigned-char*>;
+define inline C-function %crypto-sign
+  input parameter sm_ :: <C-buffer-offset>;
   input parameter smlen-p_ :: <unsigned-long-long*>;
-  input parameter m_ :: <unsigned-char*>;
+  input parameter m_ :: <C-buffer-offset>;
   input parameter mlen_ :: <C-unsigned-long>;
   input parameter sk_ :: <unsigned-char*>;
   result res :: <C-signed-int>;
   c-name: "crypto_sign";
 end;
 
-define inline C-function crypto-sign-open
-  input parameter m_ :: <unsigned-char*>;
+define inline C-function %crypto-sign-open
+  input parameter m_ :: <C-buffer-offset>;
   input parameter mlen-p_ :: <unsigned-long-long*>;
-  input parameter sm_ :: <unsigned-char*>;
+  input parameter sm_ :: <C-buffer-offset>;
   input parameter smlen_ :: <C-unsigned-long>;
   input parameter pk_ :: <unsigned-char*>;
   result res :: <C-signed-int>;
   c-name: "crypto_sign_open";
 end;
 
-define inline C-function crypto-sign-detached
-  input parameter sig_ :: <unsigned-char*>;
+define inline C-function %crypto-sign-detached
+  input parameter sig_ :: <C-buffer-offset>;
   input parameter siglen-p_ :: <unsigned-long-long*>;
-  input parameter m_ :: <unsigned-char*>;
+  input parameter m_ :: <C-buffer-offset>;
   input parameter mlen_ :: <C-unsigned-long>;
   input parameter sk_ :: <unsigned-char*>;
   result res :: <C-signed-int>;
   c-name: "crypto_sign_detached";
 end;
 
-define inline C-function crypto-sign-verify-detached
-  input parameter sig_ :: <unsigned-char*>;
-  input parameter m_ :: <unsigned-char*>;
+define inline C-function %crypto-sign-verify-detached
+  input parameter sig_ :: <C-buffer-offset>;
+  input parameter m_ :: <C-buffer-offset>;
   input parameter mlen_ :: <C-unsigned-long>;
   input parameter pk_ :: <unsigned-char*>;
   result res :: <C-signed-int>;
@@ -1901,39 +1901,39 @@ define inline C-function crypto-sign-ed25519-secretkeybytes
   c-name: "crypto_sign_ed25519_secretkeybytes";
 end;
 
-define inline C-function crypto-sign-ed25519
-  input parameter sm_ :: <unsigned-char*>;
+define inline C-function %crypto-sign-ed25519
+  input parameter sm_ :: <C-buffer-offset>;
   input parameter smlen-p_ :: <unsigned-long-long*>;
-  input parameter m_ :: <unsigned-char*>;
+  input parameter m_ :: <C-buffer-offset>;
   input parameter mlen_ :: <C-unsigned-long>;
   input parameter sk_ :: <unsigned-char*>;
   result res :: <C-signed-int>;
   c-name: "crypto_sign_ed25519";
 end;
 
-define inline C-function crypto-sign-ed25519-open
-  input parameter m_ :: <unsigned-char*>;
+define inline C-function %crypto-sign-ed25519-open
+  input parameter m_ :: <C-buffer-offset>;
   input parameter mlen-p_ :: <unsigned-long-long*>;
-  input parameter sm_ :: <unsigned-char*>;
+  input parameter sm_ :: <C-buffer-offset>;
   input parameter smlen_ :: <C-unsigned-long>;
   input parameter pk_ :: <unsigned-char*>;
   result res :: <C-signed-int>;
   c-name: "crypto_sign_ed25519_open";
 end;
 
-define inline C-function crypto-sign-ed25519-detached
-  input parameter sig_ :: <unsigned-char*>;
+define inline C-function %crypto-sign-ed25519-detached
+  input parameter sig_ :: <C-buffer-offset>;
   input parameter siglen-p_ :: <unsigned-long-long*>;
-  input parameter m_ :: <unsigned-char*>;
+  input parameter m_ :: <C-buffer-offset>;
   input parameter mlen_ :: <C-unsigned-long>;
   input parameter sk_ :: <unsigned-char*>;
   result res :: <C-signed-int>;
   c-name: "crypto_sign_ed25519_detached";
 end;
 
-define inline C-function crypto-sign-ed25519-verify-detached
-  input parameter sig_ :: <unsigned-char*>;
-  input parameter m_ :: <unsigned-char*>;
+define inline C-function %crypto-sign-ed25519-verify-detached
+  input parameter sig_ :: <C-buffer-offset>;
+  input parameter m_ :: <C-buffer-offset>;
   input parameter mlen_ :: <C-unsigned-long>;
   input parameter pk_ :: <unsigned-char*>;
   result res :: <C-signed-int>;
