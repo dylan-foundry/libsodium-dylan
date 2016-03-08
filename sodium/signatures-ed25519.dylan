@@ -13,9 +13,10 @@ define function crypto-sign-ed25519-keypair
     ()
  => (public-key :: <ed25519-public-signing-key>,
      secret-key :: <ed25519-secret-signing-key>)
-  let public-key-data = make(<C-string>, size: $crypto-sign-ed25519-PUBLICKEYBYTES);
-  let secret-key-data = make(<C-string>, size: $crypto-sign-ed25519-SECRETKEYBYTES);
-  let res = %crypto-sign-ed25519-keypair(public-key-data, secret-key-data);
+  let public-key-data = make(<byte-vector>, size: $crypto-sign-ed25519-PUBLICKEYBYTES);
+  let secret-key-data = make(<byte-vector>, size: $crypto-sign-ed25519-SECRETKEYBYTES);
+  let res = %crypto-sign-ed25519-keypair(byte-storage-address(public-key-data),
+                                         byte-storage-address(secret-key-data));
   check-error(res, "crypto-sign-ed25519-keypair");
   let public-key = make(<ed25519-public-signing-key>, data: public-key-data);
   let secret-key = make(<ed25519-secret-signing-key>, data: secret-key-data);
@@ -30,7 +31,7 @@ define method crypto-sign
   let signed-payload-len = make(<C-long*>);
   let res = %crypto-sign-ed25519(byte-storage-address(signed-payload), signed-payload-len,
                                  byte-storage-address(payload), payload.size,
-                                 secret-signing-key-data(secret-key));
+                                 byte-storage-address(secret-signing-key-data(secret-key)));
   check-error(res, "crypto-sign-ed25519");
   make(<signed-payload>, data: signed-payload,
        size: as(<integer>, C-long-at(signed-payload-len)),
@@ -48,7 +49,7 @@ define method crypto-sign-open
   let payload-size = signed-payload-size(signed-payload);
   let res = %crypto-sign-ed25519-open(byte-storage-address(unsigned-message), unsigned-message-len,
                                       byte-storage-address(payload), payload-size,
-                                      public-signing-key-data(public-key));
+                                      byte-storage-address(public-signing-key-data(public-key)));
   check-error(res, "crypto-sign-ed25519-open");
   unsigned-message
 end method;
@@ -62,7 +63,7 @@ define method crypto-sign-detached
   let res = %crypto-sign-ed25519-detached(byte-storage-address(signature-data),
                                           signature-data-size,
                                           byte-storage-address(payload), payload.size,
-                                          secret-signing-key-data(secret-key));
+                                          byte-storage-address(secret-signing-key-data(secret-key)));
   check-error(res, "crypto-sign-ed25519-detached");
   make(<detached-signature>, data: signature-data,
        size: as(<integer>, C-long-at(signature-data-size)))
@@ -76,15 +77,16 @@ define method crypto-sign-verify-detached
   let res
     = %crypto-sign-ed25519-verify-detached(byte-storage-address(detached-signature-data(signature)),
                                            byte-storage-address(payload), payload.size,
-                                           public-signing-key-data(public-key));
+                                           byte-storage-address(public-signing-key-data(public-key)));
   check-error(res, "crypto-sign-ed25519-verify-detached");
 end method;
 
 define method crypto-sign-ed25519-sk-to-pk
     (secret-key :: <ed25519-secret-signing-key>)
  => (public-key :: <ed25519-public-signing-key>)
-  let public-key-data = make(<C-string>, size: $crypto-sign-ed25519-PUBLICKEYBYTES);
-  let res = %crypto-sign-ed25519-sk-to-pk(public-key-data, secret-signing-key-data(secret-key));
+  let public-key-data = make(<byte-vector>, size: $crypto-sign-ed25519-PUBLICKEYBYTES);
+  let res = %crypto-sign-ed25519-sk-to-pk(byte-storage-address(public-key-data),
+                                          byte-storage-address(secret-signing-key-data(secret-key)));
   check-error(res, "crypto-sign-ed25519-sk-to-pk");
   make(<ed25519-public-signing-key>, data: public-key-data);
 end method;

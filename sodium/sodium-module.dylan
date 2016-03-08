@@ -4,11 +4,6 @@ define module sodium
   use common-dylan;
   use c-ffi;
   use libsodium,
-    rename: {
-      crypto-sign-keypair => %crypto-sign-keypair,
-      crypto-sign-ed25519-keypair => %crypto-sign-ed25519-keypair,
-      crypto-sign-ed25519-sk-to-pk => %crypto-sign-ed25519-sk-to-pk,
-    },
     export: {
       $crypto-auth-BYTES,
       $crypto-auth-KEYBYTES,

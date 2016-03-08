@@ -1825,9 +1825,9 @@ define inline C-function crypto-sign-seed-keypair
   c-name: "crypto_sign_seed_keypair";
 end;
 
-define inline C-function crypto-sign-keypair
-  input parameter pk_ :: <unsigned-char*>;
-  input parameter sk_ :: <unsigned-char*>;
+define inline C-function %crypto-sign-keypair
+  input parameter pk_ :: <C-buffer-offset>;
+  input parameter sk_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_sign_keypair";
 end;
@@ -1837,7 +1837,7 @@ define inline C-function %crypto-sign
   input parameter smlen-p_ :: <unsigned-long-long*>;
   input parameter m_ :: <C-buffer-offset>;
   input parameter mlen_ :: <C-unsigned-long>;
-  input parameter sk_ :: <unsigned-char*>;
+  input parameter sk_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_sign";
 end;
@@ -1847,7 +1847,7 @@ define inline C-function %crypto-sign-open
   input parameter mlen-p_ :: <unsigned-long-long*>;
   input parameter sm_ :: <C-buffer-offset>;
   input parameter smlen_ :: <C-unsigned-long>;
-  input parameter pk_ :: <unsigned-char*>;
+  input parameter pk_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_sign_open";
 end;
@@ -1857,7 +1857,7 @@ define inline C-function %crypto-sign-detached
   input parameter siglen-p_ :: <unsigned-long-long*>;
   input parameter m_ :: <C-buffer-offset>;
   input parameter mlen_ :: <C-unsigned-long>;
-  input parameter sk_ :: <unsigned-char*>;
+  input parameter sk_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_sign_detached";
 end;
@@ -1866,7 +1866,7 @@ define inline C-function %crypto-sign-verify-detached
   input parameter sig_ :: <C-buffer-offset>;
   input parameter m_ :: <C-buffer-offset>;
   input parameter mlen_ :: <C-unsigned-long>;
-  input parameter pk_ :: <unsigned-char*>;
+  input parameter pk_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_sign_verify_detached";
 end;
@@ -1906,7 +1906,7 @@ define inline C-function %crypto-sign-ed25519
   input parameter smlen-p_ :: <unsigned-long-long*>;
   input parameter m_ :: <C-buffer-offset>;
   input parameter mlen_ :: <C-unsigned-long>;
-  input parameter sk_ :: <unsigned-char*>;
+  input parameter sk_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_sign_ed25519";
 end;
@@ -1916,7 +1916,7 @@ define inline C-function %crypto-sign-ed25519-open
   input parameter mlen-p_ :: <unsigned-long-long*>;
   input parameter sm_ :: <C-buffer-offset>;
   input parameter smlen_ :: <C-unsigned-long>;
-  input parameter pk_ :: <unsigned-char*>;
+  input parameter pk_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_sign_ed25519_open";
 end;
@@ -1926,7 +1926,7 @@ define inline C-function %crypto-sign-ed25519-detached
   input parameter siglen-p_ :: <unsigned-long-long*>;
   input parameter m_ :: <C-buffer-offset>;
   input parameter mlen_ :: <C-unsigned-long>;
-  input parameter sk_ :: <unsigned-char*>;
+  input parameter sk_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_sign_ed25519_detached";
 end;
@@ -1935,14 +1935,14 @@ define inline C-function %crypto-sign-ed25519-verify-detached
   input parameter sig_ :: <C-buffer-offset>;
   input parameter m_ :: <C-buffer-offset>;
   input parameter mlen_ :: <C-unsigned-long>;
-  input parameter pk_ :: <unsigned-char*>;
+  input parameter pk_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_sign_ed25519_verify_detached";
 end;
 
-define inline C-function crypto-sign-ed25519-keypair
-  input parameter pk_ :: <unsigned-char*>;
-  input parameter sk_ :: <unsigned-char*>;
+define inline C-function %crypto-sign-ed25519-keypair
+  input parameter pk_ :: <C-buffer-offset>;
+  input parameter sk_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_sign_ed25519_keypair";
 end;
@@ -1976,9 +1976,9 @@ define inline C-function crypto-sign-ed25519-sk-to-seed
   c-name: "crypto_sign_ed25519_sk_to_seed";
 end;
 
-define inline C-function crypto-sign-ed25519-sk-to-pk
-  input parameter pk_ :: <unsigned-char*>;
-  input parameter sk_ :: <unsigned-char*>;
+define inline C-function %crypto-sign-ed25519-sk-to-pk
+  input parameter pk_ :: <C-buffer-offset>;
+  input parameter sk_ :: <C-buffer-offset>;
   result res :: <C-signed-int>;
   c-name: "crypto_sign_ed25519_sk_to_pk";
 end;

@@ -113,35 +113,55 @@ define interface
       map-argument: { 2 => <C-buffer-offset> },
       map-argument: { 4 => <C-buffer-offset> };
 
+    function "crypto_sign_keypair" => %crypto-sign-keypair,
+      map-argument: { 1 => <C-buffer-offset> },
+      map-argument: { 2 => <C-buffer-offset> };
+
+    function "crypto_sign_ed25519_keypair" => %crypto-sign-ed25519-keypair,
+      map-argument: { 1 => <C-buffer-offset> },
+      map-argument: { 2 => <C-buffer-offset> };
+
+    function "crypto_sign_ed25519_sk_to_pk" => %crypto-sign-ed25519-sk-to-pk,
+      map-argument: { 1 => <C-buffer-offset> },
+      map-argument: { 2 => <C-buffer-offset> };
+
     function "crypto_sign" => %crypto-sign,
       map-argument: { 1 => <C-buffer-offset> },
-      map-argument: { 3 => <C-buffer-offset> };
+      map-argument: { 3 => <C-buffer-offset> },
+      map-argument: { 5 => <C-buffer-offset> };
 
     function "crypto_sign_open" => %crypto-sign-open,
       map-argument: { 1 => <C-buffer-offset> },
-      map-argument: { 3 => <C-buffer-offset> };
+      map-argument: { 3 => <C-buffer-offset> },
+      map-argument: { 5 => <C-buffer-offset> };
 
     function "crypto_sign_detached" => %crypto-sign-detached,
       map-argument: { 1 => <C-buffer-offset> },
-      map-argument: { 3 => <C-buffer-offset> };
+      map-argument: { 3 => <C-buffer-offset> },
+      map-argument: { 5 => <C-buffer-offset> };
 
     function "crypto_sign_verify_detached" => %crypto-sign-verify-detached,
       map-argument: { 1 => <C-buffer-offset> },
-      map-argument: { 2 => <C-buffer-offset> };
+      map-argument: { 2 => <C-buffer-offset> },
+      map-argument: { 4 => <C-buffer-offset> };
 
     function "crypto_sign_ed25519" => %crypto-sign-ed25519,
       map-argument: { 1 => <C-buffer-offset> },
-      map-argument: { 3 => <C-buffer-offset> };
+      map-argument: { 3 => <C-buffer-offset> },
+      map-argument: { 5 => <C-buffer-offset> };
 
     function "crypto_sign_ed25519_open" => %crypto-sign-ed25519-open,
       map-argument: { 1 => <C-buffer-offset> },
-      map-argument: { 3 => <C-buffer-offset> };
+      map-argument: { 3 => <C-buffer-offset> },
+      map-argument: { 5 => <C-buffer-offset> };
 
     function "crypto_sign_ed25519_detached" => %crypto-sign-ed25519-detached,
       map-argument: { 1 => <C-buffer-offset> },
-      map-argument: { 3 => <C-buffer-offset> };
+      map-argument: { 3 => <C-buffer-offset> },
+      map-argument: { 5 => <C-buffer-offset> };
 
     function "crypto_sign_ed25519_verify_detached" => %crypto-sign-ed25519-verify-detached,
       map-argument: { 1 => <C-buffer-offset> },
-      map-argument: { 2 => <C-buffer-offset> };
+      map-argument: { 2 => <C-buffer-offset> },
+      map-argument: { 4 => <C-buffer-offset> };
 end interface;

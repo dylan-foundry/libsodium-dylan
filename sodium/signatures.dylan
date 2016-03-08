@@ -4,12 +4,12 @@ author: Bruce Mitchener, Jr.
 copyright: See LICENSE file in this distribution.
 
 define class <public-signing-key> (<object>)
-  constant slot public-signing-key-data :: <C-string>,
+  constant slot public-signing-key-data :: <byte-vector>,
     required-init-keyword: data:;
 end class;
 
 define class <secret-signing-key> (<object>)
-  constant slot secret-signing-key-data :: <C-string>,
+  constant slot secret-signing-key-data :: <byte-vector>,
     required-init-keyword: data:;
 end class;
 

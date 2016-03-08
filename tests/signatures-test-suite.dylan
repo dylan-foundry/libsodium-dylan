@@ -22,7 +22,7 @@ define function sign-round-trip-helper
 
   let data = public-signing-key-data(public-key);
   let old = data[3];
-  data[3] := as(<character>, as(<integer>, data[3]) + 1);
+  data[3] := as(<integer>, data[3]) + 1;
   assert-signals(<sodium-error>,
                  crypto-sign-open(signed-payload, public-key),
                  "mutated public key fails to open");
